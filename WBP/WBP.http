@@ -1,0 +1,6 @@
+@WBP_HostAddress = http://localhost:5269
+
+GET {{WBP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
