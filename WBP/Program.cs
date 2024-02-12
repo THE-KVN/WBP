@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace WBP
 {
     public class Program
@@ -10,6 +12,13 @@ namespace WBP
 
             builder.Services.AddControllers();
 
+            // Add DbContext configuration
+            builder.Services.AddDbContext<WBContext>(options =>
+                options.UseSqlite(
+                    "Data Source=C:\\WB\\Database\\wb.db"
+                )
+            );
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -17,7 +26,6 @@ namespace WBP
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

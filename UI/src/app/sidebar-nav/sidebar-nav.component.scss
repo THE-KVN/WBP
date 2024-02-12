@@ -1,0 +1,105 @@
+@import '../variables.scss';
+
+.sidebar-Parent {
+  position: fixed;
+  height: 100dvh;
+  width: 16.7em;
+  overflow-y: auto;
+  background-color: #2C313F;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.Sidebar-Item {
+  color: #ffffff;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.Sidebar-Item:hover {
+  color: #ffffff;
+  background-color: #78AC4B;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.Sidebar-ListStyle {
+  list-style-type: none;
+  padding: 0;
+}
+
+.Sidebar-Item-Logo {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.Sidebar-Logo {
+  width: 4em;
+  padding-right: 1em;
+}
+
+.Sidebar-Icons {
+  width: 2em;
+  padding-right: 1em;
+}
+
+.admin-dropdown-content {
+  display: block;
+  overflow: hidden;
+}
+
+ul.Sidebar-ListStyle {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.active-tab {
+  color: #ffffff;
+  background-color: #78AC4B;
+  padding: 1em;
+}
+
+.Sidebar-Password-Input {
+  padding: 5px;
+  border: 1px solid #78AC4B;
+  border-radius: 3px;
+  background-color: transparent;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1.2em;
+}
+
+.Sidebar-Password-Input:focus {
+ color: #ffffff;
+}
+
+.Sidebar-Password-Input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ffffff;
+}
+
+.Sidebar-Password-Input::-moz-placeholder { /* Firefox 19+ */
+  color: #ffffff;
+}
+
+.Sidebar-Password-Input:-ms-input-placeholder { /* IE 10+ */
+  color: #ffffff;
+}
+
+.Sidebar-Password-Input:-moz-placeholder { /* Firefox 18- */
+  color: #ffffff;
+}
+
+.Sidebar-Password-Button {
+  margin-left: 0.5em;
+  padding: 6px 0px;
+  width: 21%;
+  background-color: #78AC4B;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
