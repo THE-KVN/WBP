@@ -2,7 +2,7 @@
 
   <h2 class="h2-headings">Add Customer</h2>
 
-  <form >
+  <form (ngSubmit)="onSubmit()">
     <h3>Add Customer Details</h3>
     
     <label class="Input-Lables" for="plateNumber">Customer Name <span class="Required">*</span></label>
@@ -39,6 +39,11 @@
     </div>
     
   </form>
+
+  <!-- Toast message -->
+  <div *ngIf="toastMessage" class="toast-message">
+    {{ toastMessage }}
+  </div>
 
   <div class="Dashboard-Third-Layout-Blocks">
     <div class="Dashboard-Layout-Block-List">
@@ -197,7 +202,7 @@
 <!-- Your modal content here -->
 <!-- Add your form or editable fields here -->
 
-<form >
+<form (ngSubmit)="onSubmitEdit()">
   <h3>Edit Customer</h3>
   
   <label class="Input-Lables" for="plateNumber">Customer Name <span class="Required">*</span></label>
@@ -238,5 +243,10 @@
   </div>
   
 </form>
+
+<!-- Toast message -->
+<div *ngIf="toastMessageEdit" class="toast-message-edit">
+  Customer Edited Successfully!
+</div>
   
 </div>

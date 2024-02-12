@@ -95,3 +95,17 @@ select {
   border-radius: 3px;
   background-color: transparent;
 }
+
+/* Style for the toast message */
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: -5.5%;
+  transform: translateX(-50%);
+  background-color: #78AC4B;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 9999;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}

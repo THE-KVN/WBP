@@ -297,7 +297,7 @@
   <!-- Your modal content here -->
   <!-- Add your form or editable fields here -->
 
-  <form >
+  <form (ngSubmit)="onSubmitEdit()">
     <h3>Edit Silo Levels</h3>
     
     <label class="Input-Lables" for="plateNumber">Choose Silo <span class="Required">*</span></label>
@@ -333,5 +333,10 @@
       </div>
     </div>
   </form>
+
+  <!-- Toast message -->
+  <div *ngIf="toastMessageEdit" class="toast-message-edit">
+    Silo Level Edited Successfully!
+  </div>
 
   </div>

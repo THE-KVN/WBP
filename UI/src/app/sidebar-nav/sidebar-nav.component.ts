@@ -63,7 +63,7 @@ export class SidebarNavComponent {
 
   submitPin() {
     // Add your logic to check if the entered PIN is correct (e.g., compare with a predefined PIN)
-    const correctPIN = '1234'; // Change this to your desired PIN
+    const correctPIN = 'wbrhg01'; // Change this to your desired PIN
 
     if (this.pin === correctPIN) {
       this.pinEntered = true;

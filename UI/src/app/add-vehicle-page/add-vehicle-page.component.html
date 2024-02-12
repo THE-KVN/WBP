@@ -2,7 +2,7 @@
    
     <h2>Add Vehicle</h2>
 
-    <form >
+    <form (ngSubmit)="onSubmit()">
       <h3>Vehicle Details</h3>
 
       <label class="Input-Lables" for="plateNumber">Vehicle Registration Number <span class="Required">*</span></label>
@@ -30,5 +30,10 @@
       </div>
       
     </form>
+
+    <!-- Toast message -->
+    <div *ngIf="toastMessage" class="toast-message">
+      {{ toastMessage }}
+    </div>
 
 </div>

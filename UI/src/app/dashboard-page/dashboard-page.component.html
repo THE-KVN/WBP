@@ -526,7 +526,7 @@
 <!-- Your modal content here -->
 <!-- Add your form or editable fields here -->
 
-<form >
+<form (ngSubmit)="onSubmitEdit()">
 <h3>Finalize</h3>
 
 <label class="Input-Lables" for="plateNumber">Choose Silo <span class="Required">*</span></label>
@@ -558,6 +558,11 @@
     <button class="button-2" type="submit">FINALIZE</button>
   </div>
 </div>
-</form> 
+</form>
+
+<!-- Toast message -->
+<div *ngIf="toastMessageEdit" class="toast-message-edit">
+  Finalize Successfull!
+</div>
   
 </div>
