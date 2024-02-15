@@ -10,8 +10,15 @@ import { Component } from '@angular/core';
 export class DashboardPageComponent {
   showModal: boolean = false;
   toastMessageEdit: string = '';
+  isLoading: boolean = true; // Initially, show the loader
 
-  constructor() { }
+  constructor() {
+    // Simulate data loading
+    setTimeout(() => {
+      // Data loading completed
+      this.isLoading = false;
+    }, 4000); // Simulating 4 seconds of loading time
+   }
 
   ngOnInit(): void {
   }

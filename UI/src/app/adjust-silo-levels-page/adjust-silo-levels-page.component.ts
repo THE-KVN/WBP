@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class adjustSiloLevelsPageComponent implements OnInit {
   showModal: boolean = false;
   toastMessageEdit: string = '';
+  isLoading: boolean = true; // Initially, show the loader
 
-  constructor() { }
+  constructor() {
+    // Simulate data loading
+    setTimeout(() => {
+      // Data loading completed
+      this.isLoading = false;
+    }, 4000); // Simulating 4 seconds of loading time
+   }
 
   ngOnInit(): void {
   }
