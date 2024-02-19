@@ -60,6 +60,11 @@ namespace WBP.Entities
         public int? ContractId { get; set; }
         public virtual Contract? Contract { get; set; }
 
+        [ForeignKey("Vehicle")]
+        public int? VehicleId { get; set; }
+        public virtual Vehicle? Vehicle { get; set; }
+
+
         public SiloLoad() { }
     }
 

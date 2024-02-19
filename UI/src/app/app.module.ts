@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ApiDataService } from './services/ApiDataService';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { offLoadProductPageComponent } from './off-load-product-page/off-load-product-page.component';
 import { loadProductPageComponent } from './load-product-page/load-product-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,12 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ApiDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

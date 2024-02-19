@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
+import { ApiDataService } from '../services/ApiDataService';
+import { Silo, SiloLoad, Vehicle, Product, Customer, Contract, Settings, LoadType, ProductCategory } from "../interfaces/Entities";
+import { ApiResponse } from "../interfaces/ViewModels";
+
 @Component({
   selector: 'app-sidebar-nav',
   templateUrl: './sidebar-nav.component.html',
@@ -31,7 +35,9 @@ export class SidebarNavComponent {
   pinEntered: boolean = false;
   pin: string = '';
 
-  constructor() { }
+error: string = "";
+
+  constructor(private apiService: ApiDataService) { }
 
   ngOnInit(): void {
   }
@@ -63,7 +69,7 @@ export class SidebarNavComponent {
 
   submitPin() {
     // Add your logic to check if the entered PIN is correct (e.g., compare with a predefined PIN)
-    const correctPIN = '1234'; // Change this to your desired PIN
+    const correctPIN = 'wbrhg.1234'; // Change this to your desired PIN
 
     if (this.pin === correctPIN) {
       this.pinEntered = true;
@@ -97,6 +103,51 @@ export class SidebarNavComponent {
 
   showWaybilPrintDownload() {
     this.selectedTab = 'waybil-print-download';
+
+    //api get call
+    this.apiService.get<ApiResponse>('api/generatewaybil/' + 1)
+      .subscribe(result => {
+        var resp = result;
+        if (resp.success)
+        {
+          //resp.file is a byt
+          console.log('api/generatewaybil : ' + JSON.stringify(resp));
+
+          var byteArray = this.base64ToArrayBuffer(resp.message);
+          let blob: any = new Blob([byteArray], { type: 'application/pdf' });
+          //var link = document.createElement('a');
+          //link.href = window.URL.createObjectURL(blob);
+          //link.download = "fileName2";
+          //link.click();
+
+          this.openPdfInNewTab(blob);
+        }
+        else{
+          this.error = resp.message;
+          console.log('api/generatewaybil : ' + this.error);
+        }
+      })
   }
+
+  openPdfInNewTab(blob: Blob) {
+    // 3. Create a URL for the blob
+    const url = window.URL.createObjectURL(blob);
+  
+    // 4. Open the URL in a new tab
+    window.open(url, '_blank');
+  
+    // 5. Revoke the object URL once the tab is closed
+    window.URL.revokeObjectURL(url);
+  }
+
+  base64ToArrayBuffer(base64:any):ArrayBuffer {
+    var binary_string =  window.atob(base64);
+    var len = binary_string.length;
+    var bytes = new Uint8Array( len );
+    for (var i = 0; i < len; i++)        {
+        bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes.buffer;
+}
 
 }

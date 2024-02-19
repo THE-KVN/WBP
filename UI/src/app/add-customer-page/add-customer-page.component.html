@@ -2,238 +2,64 @@
 
   <h2 class="h2-headings">Add Customer</h2>
 
-  <form >
+  <form (ngSubmit)="onSubmitCustomer()">
     <h3>Add Customer Details</h3>
     
-    <label class="Input-Lables" for="plateNumber">Customer Name <span class="Required">*</span></label>
-    <input type="text" id="firstname" placeholder="Enter Customer Name" required>
-
-    <label class="Input-Lables" for="type">Customer Vehicle <span class="Required">*</span></label>
-    <select name="languages" id="vehicle" placeholder="Choose Vehicle" required>
-      <option value="Vehicle">Vehicle 1</option>
-      <option value="Vehicle">Vehicle 2</option>
-      <option value="Vehicle">Vehicle 3</option>
-      <option value="Vehicle">Vehicle 4</option>
-      <option value="Vehicle">Vehicle 5</option>
-      <option value="Vehicle">Vehicle 6</option>
-      <option value="Vehicle">Vehicle 7</option>
-      <option value="Vehicle">Vehicle 8</option>
-    </select>
-
-    <label class="Input-Lables" for="type">Customer Silo Product <span class="Required">*</span></label>
-    <select name="languages" id="vehicle" placeholder="Choose Silo Product" required>
-      <option value="Vehicle">Silo Product 1</option>
-      <option value="Vehicle">Silo Product 2</option>
-      <option value="Vehicle">Silo Product 3</option>
-      <option value="Vehicle">Silo Product 4</option>
-      <option value="Vehicle">Silo Product 5</option>
-      <option value="Vehicle">Silo Product 6</option>
-      <option value="Vehicle">Silo Product 7</option>
-      <option value="Vehicle">Silo Product 8</option>
-    </select>
+    <label class="Input-Lables">Customer Name <span class="Required">*</span></label>
+    <input type="text" placeholder="Enter Customer Name" [(ngModel)]="customer.customerName" required>
 
     <div class="Buttons-Parent">
       <div class="button-1-parent">
         <button class="button-2" type="submit">ADD CUSTOMER</button>
       </div>
-    </div>
-    
+    </div>   
   </form>
 
   <div class="Dashboard-Third-Layout-Blocks">
     <div class="Dashboard-Layout-Block-List">
   
       <h3 style="text-align: left;">Customers</h3>
-  
-      <div class="Newsfeed-Info-Parent">
-   
-        <div>
-          <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiBpZD0iRmxhdCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0iTTE0OCw4MGE0LjAwMDIsNC4wMDAyLDAsMCwxLDQtNGg5NmE0LDQsMCwwLDEsMCw4SDE1MkE0LjAwMDIsNC4wMDAyLDAsMCwxLDE0OCw4MFptMTAwLDQ0SDE1MmE0LDQsMCwwLDAsMCw4aDk2YTQsNCwwLDAsMCwwLThabTAsNDhIMTc2YTQsNCwwLDAsMCwwLDhoNzJhNCw0LDAsMCwwLDAtOFpNMTQ1Ljg1NzQyLDE5MS4wMDI5M2EzLjk5OTgsMy45OTk4LDAsMSwxLTcuNzQ3MDcsMS45OTQxNCw2MC4wMjExMiw2MC4wMjExMiwwLDAsMC0xMTYuMjIwNywwLDMuOTk5OCwzLjk5OTgsMCwxLDEtNy43NDcwNy0xLjk5NDE0LDY3LjkyOTY4LDY3LjkyOTY4LDAsMCwxLDQ1LjY1MzgxLTQ3LjkzNTU1LDQ0LDQ0LDAsMSwxLDQwLjQwNzIyLDBBNjcuOTI5NjgsNjcuOTI5NjgsMCwwLDEsMTQ1Ljg1NzQyLDE5MS4wMDI5M1pNODAsMTQwYTM2LDM2LDAsMSwwLTM2LTM2QTM2LjA0MDYxLDM2LjA0MDYxLDAsMCwwLDgwLDE0MFoiLz4gPC9nPgoNPC9zdmc+" class="Silo-Svg" alt="African Theme Image 1">
-        </div>
-        
-        <div class="Info-Section">
-          <div>
-            <h4>Customer Name</h4>
-            <p>Johannes</p>
-          </div>
-          
-          <div>
-            <h4>Customer Vehicle</h4>
-            <p>Truck</p>
-          </div>
-          
-          <div>
-            <h4>Customer Silo Product</h4>
-            <p>Grain</p>
-          </div>
-          
-          <div>
-            <h4>Customer Silo Product Weight</h4>
-            <p>250 ton</p>
-          </div>
-  
-          <div>
-            <button class="Sidebar-Password-Button" (click)="openModal()">Edit</button>
-          </div>
-        </div>
-    
-        
-    
-        </div>
-  
-        <div class="Newsfeed-Info-Parent">
-   
+
+      <div *ngFor="let item of customers">
+        <div class="Newsfeed-Info-Parent">  
           <div>
             <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiBpZD0iRmxhdCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0iTTE0OCw4MGE0LjAwMDIsNC4wMDAyLDAsMCwxLDQtNGg5NmE0LDQsMCwwLDEsMCw4SDE1MkE0LjAwMDIsNC4wMDAyLDAsMCwxLDE0OCw4MFptMTAwLDQ0SDE1MmE0LDQsMCwwLDAsMCw4aDk2YTQsNCwwLDAsMCwwLThabTAsNDhIMTc2YTQsNCwwLDAsMCwwLDhoNzJhNCw0LDAsMCwwLDAtOFpNMTQ1Ljg1NzQyLDE5MS4wMDI5M2EzLjk5OTgsMy45OTk4LDAsMSwxLTcuNzQ3MDcsMS45OTQxNCw2MC4wMjExMiw2MC4wMjExMiwwLDAsMC0xMTYuMjIwNywwLDMuOTk5OCwzLjk5OTgsMCwxLDEtNy43NDcwNy0xLjk5NDE0LDY3LjkyOTY4LDY3LjkyOTY4LDAsMCwxLDQ1LjY1MzgxLTQ3LjkzNTU1LDQ0LDQ0LDAsMSwxLDQwLjQwNzIyLDBBNjcuOTI5NjgsNjcuOTI5NjgsMCwwLDEsMTQ1Ljg1NzQyLDE5MS4wMDI5M1pNODAsMTQwYTM2LDM2LDAsMSwwLTM2LTM2QTM2LjA0MDYxLDM2LjA0MDYxLDAsMCwwLDgwLDE0MFoiLz4gPC9nPgoNPC9zdmc+" class="Silo-Svg" alt="African Theme Image 1">
-          </div>
-          
+          </div>         
           <div class="Info-Section">
             <div>
               <h4>Customer Name</h4>
-              <p>Johannes</p>
+              <p>{{item.customerName}}</p>
             </div>
-            
             <div>
-              <h4>Customer Vehicle</h4>
-              <p>Truck</p>
+              <button class="Sidebar-Password-Button" (click)="openModalCustomer(item)">Edit</button>
             </div>
-            
-            <div>
-              <h4>Customer Silo Product</h4>
-              <p>Grain</p>
-            </div>
-            
-            <div>
-              <h4>Customer Silo Product Weight</h4>
-              <p>250 ton</p>
-            </div>
-  
-          <div>
-            <button class="Sidebar-Password-Button" (click)="openModal()">Edit</button>
+          </div>    
           </div>
-          </div>
-      
-          
-      
-          </div>
-  
-          <div class="Newsfeed-Info-Parent">
-   
-            <div>
-              <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiBpZD0iRmxhdCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0iTTE0OCw4MGE0LjAwMDIsNC4wMDAyLDAsMCwxLDQtNGg5NmE0LDQsMCwwLDEsMCw4SDE1MkE0LjAwMDIsNC4wMDAyLDAsMCwxLDE0OCw4MFptMTAwLDQ0SDE1MmE0LDQsMCwwLDAsMCw4aDk2YTQsNCwwLDAsMCwwLThabTAsNDhIMTc2YTQsNCwwLDAsMCwwLDhoNzJhNCw0LDAsMCwwLDAtOFpNMTQ1Ljg1NzQyLDE5MS4wMDI5M2EzLjk5OTgsMy45OTk4LDAsMSwxLTcuNzQ3MDcsMS45OTQxNCw2MC4wMjExMiw2MC4wMjExMiwwLDAsMC0xMTYuMjIwNywwLDMuOTk5OCwzLjk5OTgsMCwxLDEtNy43NDcwNy0xLjk5NDE0LDY3LjkyOTY4LDY3LjkyOTY4LDAsMCwxLDQ1LjY1MzgxLTQ3LjkzNTU1LDQ0LDQ0LDAsMSwxLDQwLjQwNzIyLDBBNjcuOTI5NjgsNjcuOTI5NjgsMCwwLDEsMTQ1Ljg1NzQyLDE5MS4wMDI5M1pNODAsMTQwYTM2LDM2LDAsMSwwLTM2LTM2QTM2LjA0MDYxLDM2LjA0MDYxLDAsMCwwLDgwLDE0MFoiLz4gPC9nPgoNPC9zdmc+" class="Silo-Svg" alt="African Theme Image 1">
-            </div>
-            
-            <div class="Info-Section">
-              <div>
-                <h4>Customer Name</h4>
-                <p>Johannes</p>
-              </div>
-              
-              <div>
-                <h4>Customer Vehicle</h4>
-                <p>Truck</p>
-              </div>
-              
-              <div>
-                <h4>Customer Silo Product</h4>
-                <p>Grain</p>
-              </div>
-              
-              <div>
-                <h4>Customer Silo Product Weight</h4>
-                <p>250 ton</p>
-              </div>
-  
-              <div>
-                <button class="Sidebar-Password-Button" (click)="openModal()">Edit</button>
-              </div>
-            </div>
-        
-            
-        
-            </div>
-  
-            <div class="Newsfeed-Info-Parent">
-   
-              <div>
-                <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiBpZD0iRmxhdCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0iTTE0OCw4MGE0LjAwMDIsNC4wMDAyLDAsMCwxLDQtNGg5NmE0LDQsMCwwLDEsMCw4SDE1MkE0LjAwMDIsNC4wMDAyLDAsMCwxLDE0OCw4MFptMTAwLDQ0SDE1MmE0LDQsMCwwLDAsMCw4aDk2YTQsNCwwLDAsMCwwLThabTAsNDhIMTc2YTQsNCwwLDAsMCwwLDhoNzJhNCw0LDAsMCwwLDAtOFpNMTQ1Ljg1NzQyLDE5MS4wMDI5M2EzLjk5OTgsMy45OTk4LDAsMSwxLTcuNzQ3MDcsMS45OTQxNCw2MC4wMjExMiw2MC4wMjExMiwwLDAsMC0xMTYuMjIwNywwLDMuOTk5OCwzLjk5OTgsMCwxLDEtNy43NDcwNy0xLjk5NDE0LDY3LjkyOTY4LDY3LjkyOTY4LDAsMCwxLDQ1LjY1MzgxLTQ3LjkzNTU1LDQ0LDQ0LDAsMSwxLDQwLjQwNzIyLDBBNjcuOTI5NjgsNjcuOTI5NjgsMCwwLDEsMTQ1Ljg1NzQyLDE5MS4wMDI5M1pNODAsMTQwYTM2LDM2LDAsMSwwLTM2LTM2QTM2LjA0MDYxLDM2LjA0MDYxLDAsMCwwLDgwLDE0MFoiLz4gPC9nPgoNPC9zdmc+" class="Silo-Svg" alt="African Theme Image 1">
-              </div>
-              
-              <div class="Info-Section">
-                <div>
-                  <h4>Customer Name</h4>
-                  <p>Johannes</p>
-                </div>
-                
-                <div>
-                  <h4>Customer Vehicle</h4>
-                  <p>Truck</p>
-                </div>
-                
-                <div>
-                  <h4>Customer Silo Product</h4>
-                  <p>Grain</p>
-                </div>
-                
-                <div>
-                  <h4>Customer Silo Product Weight</h4>
-                  <p>250 ton</p>
-                </div>
-  
-                <div>
-                  <button class="Sidebar-Password-Button" (click)="openModal()">Edit</button>
-                </div>
-              </div>
-              </div>
-  
+      </div>
     </div>
   </div>
 
 </div>
 
-<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()"></div>
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModalCustomer()"></div>
 <div class="modal" *ngIf="showModal">
-<span class="close" (click)="closeModal()">&times;</span>
+<span class="close" (click)="closeModalCustomer()">&times;</span>
 <!-- Your modal content here -->
 <!-- Add your form or editable fields here -->
 
 <form >
   <h3>Edit Customer</h3>
   
-  <label class="Input-Lables" for="plateNumber">Customer Name <span class="Required">*</span></label>
-  <input type="text" id="firstname" placeholder="Enter Customer Name" required>
-
-  <label class="Input-Lables" for="type">Customer Vehicle <span class="Required">*</span></label>
-  <select name="languages" id="vehicle" placeholder="Choose Vehicle" required>
-    <option value="Vehicle">Vehicle 1</option>
-    <option value="Vehicle">Vehicle 2</option>
-    <option value="Vehicle">Vehicle 3</option>
-    <option value="Vehicle">Vehicle 4</option>
-    <option value="Vehicle">Vehicle 5</option>
-    <option value="Vehicle">Vehicle 6</option>
-    <option value="Vehicle">Vehicle 7</option>
-    <option value="Vehicle">Vehicle 8</option>
-  </select>
-
-  <label class="Input-Lables" for="type">Customer Silo Product <span class="Required">*</span></label>
-  <select name="languages" id="vehicle" placeholder="Choose Silo Product" required>
-    <option value="Vehicle">Silo Product 1</option>
-    <option value="Vehicle">Silo Product 2</option>
-    <option value="Vehicle">Silo Product 3</option>
-    <option value="Vehicle">Silo Product 4</option>
-    <option value="Vehicle">Silo Product 5</option>
-    <option value="Vehicle">Silo Product 6</option>
-    <option value="Vehicle">Silo Product 7</option>
-    <option value="Vehicle">Silo Product 8</option>
-  </select>
-
+  <label class="Input-Lables">Customer Name <span class="Required">*</span></label>
+  <input type="text" placeholder="Enter Customer Name" [(ngModel)]="selectedCustomer.customerName" required>
+  
   <div class="Buttons-Parent">
     <div class="button-1-parent">
-      <button class="button-2" type="submit">EDIT CUSTOMER</button>
+      <button class="button-2" type="submit" (click)="onEditCustomer()">EDIT CUSTOMER</button>
     </div>
 
     <div class="button-2-parent">
-      <button class="button-1" type="submit">DELETE CUSTOMER</button>
+      <button class="button-1" type="submit" (click)="onDeleteCustomer()">DELETE CUSTOMER</button>
     </div>
   </div>
   

@@ -1,5 +1,41 @@
 @import '../variables.scss';
 
+.Info-Table {
+  /* Your desired table styles */
+  border-collapse: collapse; /* Removes borders between cells */
+  width: 50%; /* Or desired width */
+  margin-bottom: 20px;
+}
+
+.Info-Table th {
+  /* Styling for table headers */
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px; /* Add padding */
+  text-align: left; /* Align left by default */
+}
+
+.Info-Table td {
+  /* Styling for table data cells */
+  padding: 5px; /* Add padding */
+  
+}
+table, th {
+  border: 1px solid $primary-color;
+  border-collapse: collapse;
+}
+
+.dataheader {
+  width: 30%;
+  border: 1px solid $primary-color;
+  border-collapse: collapse;
+}
+
+.datacell {
+  width: 70%;
+  border: 1px solid $primary-color;
+  border-collapse: collapse;
+}
+
 .register-container {
   margin-left: 16.2em;
   padding: 2em;

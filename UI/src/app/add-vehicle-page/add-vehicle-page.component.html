@@ -1,34 +1,68 @@
 <div class="register-container">
-   
-    <h2>Add Vehicle</h2>
+  <h2>Add Vehicle</h2>
 
-    <form >
-      <h3>Vehicle Details</h3>
+  <form (ngSubmit)="onSubmit()">
+    <h3>Vehicle Details</h3>
 
-      <label class="Input-Lables" for="plateNumber">Vehicle Registration Number <span class="Required">*</span></label>
-      <input type="text" id="firstname" placeholder="Enter Vehicle Registration Number" required>
-      
-      <label class="Input-Lables" for="plateNumber">Vehicle License Plate Number <span class="Required">*</span></label>
-      <input type="text" id="firstname" placeholder="Enter License Plate Number" required>
+    <label class="Input-Lables" for="plateNumber"
+      >Vehicle Registration Number <span class="Required">*</span></label
+    >
+    <input
+      type="text"
+      id="registrationNumber"
+      [(ngModel)]="vehicle.registrationNumber"
+      placeholder="Enter Vehicle Registration Number"
+      required
+    />
 
-      <label class="Input-Lables" for="type">Vehicle Type <span class="Required">*</span></label>
-      <input type="text" id="surname" placeholder="Enter Vehicle Type" required>
+    <label class="Input-Lables" for="make"
+      >Make <span class="Required">*</span></label
+    >
+    <input
+      type="text"
+      id="Make"
+      [(ngModel)]="vehicle.make"
+      placeholder="Enter Vehicle Make"
+      required
+    />
 
-      <label class="Input-Lables" for="make">Make <span class="Required">*</span></label>
-      <input type="text" id="email" placeholder="Enter Make" required>
-
-      <label class="Input-Lables" for="model">Model <span class="Required">*</span></label>
-      <input type="text" id="cellNumber" placeholder="Enter Model" required>
-
-      <label class="Input-Lables" for="year">Year <span class="Required">*</span></label>
-      <input type="number" id="password" placeholder="Enter Year Of Vehicle" required>
- 
-      <div class="Buttons-Parent">
-        <div class="button-1-parent">
-          <button class="button-2" type="submit">ADD VEHICLE</button>
-        </div>
+    <div class="Buttons-Parent">
+      <div class="button-1-parent">
+        <button class="button-2" type="submit">ADD VEHICLE</button>
       </div>
-      
-    </form>
+    </div>
+  </form>
 
+  <div class="Dashboard-Third-Layout-Blocks">
+    <div class="Dashboard-Layout-Block-List">
+
+      <h3 style="text-align: left">Vehicles</h3>
+
+      <table class="Info-Table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Registration Number</th>
+                <th>Make</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of vehicles">
+                <td><img
+                  src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiBoZWlnaHQ9IjgwMHB4IiB3aWR0aD0iODAwcHgiIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MTIuMDAyIDUxMi4wMDIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoNPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiLz4KDTxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgoNPGcgaWQ9IlNWR1JlcG9faWNvbkNhcnJpZXIiPiA8Zz4gPGc+IDxwYXRoIGQ9Ik0zNDAuMjcxLDE2MS45MnYtMC4wMDFjLTMuNDY4LDAtNi44NDksMC4wNzEtMTAuMTUxLDAuMTkzbDIxLjEyNi02My4zNjdoLTEwLjk3NWMtMTQuMzM2LDAtMjcuMjA1LDEuMDU1LTM4LjQyMSwzLjEzOSBsNC41MjYtNDUuMjY4TDI1Ni4wNDYsMGwtNTAuMzI4LDU2LjYxN2w0LjUyNiw0NS4yNjhjLTExLjIxOC0yLjA4NC0yNC4wODctMy4xMzktMzguNDIxLTMuMTM5aC0xMS4wNjZsMjEuNjg4LDYzLjM4NyBjLTMuNDU5LTAuMTM1LTYuOTk5LTAuMjEyLTEwLjYyMS0wLjIxMkgxNjAuODVsMjEuMTE1LDYzLjM2N2MtMy4zLTAuMTIzLTYuNjc5LTAuMTkzLTEwLjE0My0wLjE5M0gxNjAuODVsMjEuMTExLDYzLjM1NiBjLTMuMjk5LTAuMTIyLTYuNjc2LTAuMTkzLTEwLjEzOC0wLjE5M0gxNjAuODVsMjEuMTE1LDYzLjM2OGMtMy4zLTAuMTIzLTYuNjc5LTAuMTkzLTEwLjE0My0wLjE5M2gtMTAuOTc0bDMxLjU4Niw5NC43ODFoNTUuNzAxIHY2NS43ODloMTUuODJ2LTY1Ljc4OWg1NS42OTJsMzEuNTk4LTk0Ljc4MWgtMTAuOTc1Yy0zLjQ2NywwLTYuODQ4LDAuMDcxLTEwLjE1MSwwLjE5M2wyMS4xMjYtNjMuMzY4aC0xMC45NzUgYy0zLjQ2NiwwLTYuODQ2LDAuMDcxLTEwLjE0NywwLjE5M2wyMS4xMjEtNjMuMzU2aC0xMC45NzVjLTMuNDY3LDAtNi44NDgsMC4wNzEtMTAuMTUxLDAuMTkzbDIxLjEyNi02My4zNjdIMzQwLjI3MXogTTMyOS4yMTgsMTE0Ljc5OWwtMTYuMTk4LDQ4LjU4OWMtMjQuMzQ4LDIuODQ5LTM5LjU2MSw5LjU1OC00OS4wNjMsMTYuODcydi0zNi42MDNjMC4wOTItMS4xOSwxLjgyMy0xNS44OTMsMzEuMDktMjQuMDAyIEMzMDQuNjA2LDExNi45OTgsMzE2LjA2NiwxMTUuMzcsMzI5LjIxOCwxMTQuNzk5eiBNMjYzLjk1NiwyMDYuNzk5di0wLjEyQzI2My45NTYsMjA2LjY3OSwyNjMuOTU4LDIwNi43MiwyNjMuOTU2LDIwNi43OTl6IE0yNjMuOTU2LDE0My42MjR2LTAuMTJDMjYzLjk1NiwxNDMuNTA0LDI2My45NTgsMTQzLjU0NSwyNjMuOTU2LDE0My42MjR6IE0yMTcuMDUzLDExOS42NTYgYzI5LjM1NCw4LjEzMywzMS4wMDEsMjIuODk0LDMxLjA4NCwyNC4wMDJ2MzYuNTk0Yy05LjQzMi03LjI1OS0yNC40OTMtMTMuOTIxLTQ4LjUyMy0xNi44MDNsLTE2LjY0My00OC42NDggQzE5Ni4wODMsMTE1LjM3OCwyMDcuNTExLDExNy4wMDQsMjE3LjA1MywxMTkuNjU2eiBNMTkyLjkyOSwxNzguNjQ1YzUyLjE4OSw0Ljc5OSw1NS4wOTcsMjcuMDY1LDU1LjIwNywyOC4xOTZ2MzYuNTg5IGMtOS41MDMtNy4zMTQtMjQuNzE5LTE0LjAyNC00OS4wNzMtMTYuODY5bC0xNi4xOS00OC41ODdDMTg2LjM0MiwxNzguMTI2LDE4OS43MDIsMTc4LjM0OSwxOTIuOTI5LDE3OC42NDV6IE0xOTIuMTA5LDI0MS43NDYgYzUyLjk3OSw0LjYzOSw1NS45MTgsMjcuMTM0LDU2LjAyNywyOC4yNjl2MzYuNTc3Yy05LjUwNS03LjMxNS0yNC43MjEtMTQuMDI1LTQ5LjA3Ni0xNi44NjlsLTE2LjE4Ny00OC41NzcgQzE4Ni4wNTksMjQxLjI4NSwxODkuMTQ0LDI0MS40ODUsMTkyLjEwOSwyNDEuNzQ2eiBNMjQ4LjEzNiw0MzAuMzloLTQ0LjI5OGwtMjAuOTY0LTYyLjkwOGMzLjE4NiwwLjEzOSw2LjI3MSwwLjM0LDkuMjM2LDAuNiBjNTIuOTc5LDQuNjM4LDU1LjkxOCwyNy4xMzMsNTYuMDI3LDI4LjI2OFY0MzAuMzl6IE0yNDguMTM3LDM2OS43NjZjLTkuNTA1LTcuMzE0LTI0LjcyLTE0LjAyNC00OS4wNzMtMTYuODY5bC0xNi4xOS00OC41ODggYzMuMTg2LDAuMTM5LDYuMjcxLDAuMzQsOS4yMzYsMC42MDFjNTIuOTc5LDQuNjM4LDU1LjkxOCwyNy4xMzMsNTYuMDI3LDI4LjI2OFYzNjkuNzY2eiBNMjU2LjA2OSwxMjQuNjQ0IGMtNi41MjUtOC4wMjItMTYuNDI1LTE0LjI2NS0yOS41MTMtMTguNjE3bC00LjQwNi00NC4wODJsMzMuODk2LTM4LjEzNGwzMy44OTgsMzguMTMzbC00LjQwNiw0NC4wNzggQzI3MC40NDMsMTExLjA1NywyNjEuNDM4LDExOC4wNTMsMjU2LjA2OSwxMjQuNjQ0eiBNMjYzLjk1NiwzNjkuNzcyVjMzMy4xOGMwLjExMi0xLjE1NCwzLjA3My0yMy42MjUsNTYuMDIyLTI4LjI3IGMyLjk2NS0wLjI2Miw2LjA1MS0wLjQ2Miw5LjI0LTAuNjAxbC0xNi4xOTgsNDguNTlDMjg4LjY3MiwzNTUuNzQ3LDI3My40NTgsMzYyLjQ1NywyNjMuOTU2LDM2OS43NzJ6IE0yNjMuOTU2LDM5Ni4zMDl2LTAuMTIgQzI2My45NTYsMzk2LjE4OSwyNjMuOTU4LDM5Ni4yMywyNjMuOTU2LDM5Ni4zMDl6IE0yNjMuOTU2LDMzMy4xMzZ2LTAuMTJDMjYzLjk1NiwzMzMuMDE1LDI2My45NTgsMzMzLjA1NiwyNjMuOTU2LDMzMy4xMzZ6IE0zMTMuMDIyLDI4OS43MjNjLTI0LjM1LDIuODUtMzkuNTYzLDkuNTU5LTQ5LjA2NywxNi44NzN2LTM2LjU4MWMwLjExMi0xLjE1NCwzLjA3My0yMy42MjQsNTYuMDIxLTI4LjI3IGMyLjk2Ni0wLjI2Miw2LjA1Mi0wLjQ2Miw5LjI0MS0wLjYwMUwzMTMuMDIyLDI4OS43MjN6IE0yNjMuOTU2LDI2OS45NzN2LTAuMTJDMjYzLjk1NiwyNjkuODUyLDI2My45NTgsMjY5Ljg5MywyNjMuOTU2LDI2OS45NzN6IE0zMDguMjQ2LDQzMC4zOWgtNDQuMjl2LTM0LjA0N2MwLjA1LTAuNjE1LDAuNjQyLTUuODA1LDYuNzUxLTExLjY0MmM2LjQ2My02LjE3NiwyMC4yNTctMTQuMDczLDQ5LjI3LTE2LjYxOCBjMi45NjYtMC4yNjIsNi4wNTItMC40NjIsOS4yNDItMC42MDFMMzA4LjI0Niw0MzAuMzl6IE0zMTMuMDE5LDIyNi41NmMtMjQuMzQ4LDIuODUxLTM5LjU2MSw5LjU2LTQ5LjA2MywxNi44NzN2LTM2LjU5MSBjMC4xMTItMS4xNTQsMy4wNzMtMjMuNjI1LDU2LjAyMi0yOC4yN2MyLjk2NC0wLjI2Miw2LjA0OS0wLjQ2Miw5LjI0MS0wLjYwMUwzMTMuMDE5LDIyNi41NnoiLz4gPC9nPiA8L2c+IDwvZz4KDTwvc3ZnPg=="
+                  class="Silo-Svg"
+                  alt="African Theme Image 1"
+                /></td>
+                <td><strong>{{ item.registrationNumber }}</strong></td>
+                <td><strong>{{ item.make }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+    </div>
+  </div>
 </div>

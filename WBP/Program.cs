@@ -12,6 +12,8 @@ namespace WBP
 
             builder.Services.AddControllers();
 
+            builder.Services.AddCors();
+
             // Add DbContext configuration
             builder.Services.AddDbContext<WBContext>(options =>
                 options.UseSqlite(
@@ -28,6 +30,8 @@ namespace WBP
             app.UseAuthorization();
 
             app.MapControllers();
+
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.Run();
         }

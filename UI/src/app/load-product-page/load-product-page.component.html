@@ -4,27 +4,45 @@
 
   <form >
     <h3>Load Product Details</h3>
-    
-    <label class="Input-Lables" for="plateNumber">Choose Silo <span class="Required">*</span></label>
-    <input type="text" id="firstname" placeholder="Enter Silo Name" required>
 
-    <label class="Input-Lables" for="type">Choose Vehicle <span class="Required">*</span></label>
-    <select name="languages" id="vehicle" placeholder="Choose Vehicle" required>
-      <option value="Vehicle">Vehicle 1</option>
-      <option value="Vehicle">Vehicle 2</option>
-      <option value="Vehicle">Vehicle 3</option>
-      <option value="Vehicle">Vehicle 4</option>
-      <option value="Vehicle">Vehicle 5</option>
-      <option value="Vehicle">Vehicle 6</option>
-      <option value="Vehicle">Vehicle 7</option>
-      <option value="Vehicle">Vehicle 8</option>
-    </select>
+    <!-- <label class="Input-Lables" for="contractId">Contract Number: <span class="Required">*</span></label>
+    <select id="contractIdSelect" [disabled]="!isPageLoaded" *ngIf="all_contracts" [(ngModel)]="selectedContractString" (change)="contractSelectionChanged($event.target.value)">
+      <option *ngFor="let contract of all_contracts" [ngValue]="contract.id">{{ contract.contractNumber }}</option>
+    </select> -->
 
-    <label class="Input-Lables" for="make">Type Of Product <span class="Required">*</span></label>
-    <input type="text" id="email" placeholder="Enter Type Of Product" required>
+    <table class="Info-Table">
+      <tbody>
+        <tr>
+          <td class="dataheader"><strong>Contract Number:</strong></td>
+          <td class="datacell"><select id="contractIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_contracts" [(ngModel)]="selectedContractString" (change)="contractSelectionChanged($event.target.value)">
+            <option *ngFor="let contract of all_contracts" [ngValue]="contract.id">{{contract.customer.customerName}} - {{ contract.contractNumber }}</option>
+          </select></td>     
+      </tr>
+          <tr>
+              <td class="dataheader"><strong>Customer:</strong></td>
+              <td class="datacell">{{selectedCustomer.customerName}}</td>
+          </tr>
+          <tr>
+            <td class="dataheader"><strong>Product:</strong></td>
+            <td class="datacell">{{selectedProduct.productName}}</td>
+        </tr>
 
-    <label class="Input-Lables" for="model">Weight Being Added (First Weight) <span class="Required">*</span></label>
-    <input type="text" id="cellNumber" placeholder="Enter Weight Being Added (First Weight)" required>
+        <tr>
+          <td class="dataheader"><strong>Silo:</strong></td>
+          <td class="datacell"><select id="siloIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_silos" [(ngModel)]="selectedSiloString" (change)="siloSelectionChanged($event.target.value)">
+            <option *ngFor="let silo of all_silos" [ngValue]="silo.id">{{silo.friendlyName}}</option>
+          </select></td>     
+        </tr>
+
+
+
+
+      </tbody>
+  </table>
+
+
+
+
 
     <div class="Buttons-Parent">
       <div class="button-1-parent">

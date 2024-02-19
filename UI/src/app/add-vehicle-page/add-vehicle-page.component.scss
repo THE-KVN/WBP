@@ -1,5 +1,57 @@
 @import '../variables.scss';
 
+.Dashboard-Third-Layout-Blocks {
+  display: flex;
+}
+
+.Dashboard-Layout-Block-List {
+  color: #000000; 
+  width: 100%;  
+  background-color: #ffffff; 
+  margin: 1em 0em 1em 0em;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.Newsfeed-Info-Parent {
+  display: flex;
+  //padding: 0.7em 0.7em 0.7em 0.7em;
+  border-bottom: 1px solid $Third-background-color;
+}
+
+.Silo-Svg {
+  width: 40px;
+    margin-top: 15px;
+}
+
+.Info-Section {
+  display: flex;
+  padding: 0 0.7em;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between
+}
+
+
+.Info-Table {
+  /* Your desired table styles */
+  border-collapse: collapse; /* Removes borders between cells */
+  width: 100%; /* Or desired width */
+}
+
+.Info-Table th {
+  /* Styling for table headers */
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px; /* Add padding */
+  text-align: left; /* Align left by default */
+}
+
+.Info-Table td {
+  /* Styling for table data cells */
+  padding: 5px; /* Add padding */
+}
+
   .register-container {
     margin-left: 16.2em;
     padding: 2em;
