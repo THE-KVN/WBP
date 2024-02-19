@@ -1,0 +1,156 @@
+@import '../variables.scss';
+
+.Dashboard-Third-Layout-Blocks {
+  display: flex;
+  width: 27.5%;
+}
+
+.Dashboard-Layout-Block-List {
+  color: #000000; 
+  width: 100%;  
+  background-color: #ffffff; 
+  margin: 1em 0em 1em 0em;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.Newsfeed-Info-Parent {
+  display: flex;
+  //padding: 0.7em 0.7em 0.7em 0.7em;
+  border-bottom: 1px solid $Third-background-color;
+}
+
+.Silo-Svg {
+  width: 40px;
+    margin-top: 15px;
+}
+
+.Info-Section {
+  display: flex;
+  padding: 0 0.7em;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between
+}
+
+
+.Info-Table {
+  /* Your desired table styles */
+  border-collapse: collapse; /* Removes borders between cells */
+  width: 100%; /* Or desired width */
+}
+
+.Info-Table th {
+  /* Styling for table headers */
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px; /* Add padding */
+  text-align: left; /* Align left by default */
+}
+
+.Info-Table td {
+  /* Styling for table data cells */
+  padding: 5px; /* Add padding */
+}
+
+  .register-container {
+    margin-left: 16.2em;
+    padding: 2em;
+  }
+  
+  .register-container h2 {
+    text-align: center;
+  }
+  
+  .register-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-container label {
+    margin-top: 10px;
+  }
+  
+  .register-container input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid $secondary-background-color;
+    border-radius: 3px;
+    background-color: transparent;
+  }
+  
+  .Buttons-Parent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-1 {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: $secondary-background-color;
+    color: $Third-color;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .button-2 {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: $Third-background-color;
+    color: $Third-color;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .button-1-parent {
+    padding-bottom: 0.2em;
+  }
+
+  .button-2-parent {
+    padding-top: 0.3em;
+  }
+
+  .item {
+    text-align: center;
+  }
+
+  .Input-Lables {
+    color: $secondary-color;
+  }
+
+  .Checkbox-Lables {
+    color: $secondary-color;
+  }
+
+  .Link-Lable {
+    color: $paragraph-secondary-color;
+  }
+
+  h2 {
+    color: $secondary-color;
+  }
+
+  h3 {
+    color: $secondary-color;
+  }
+
+  .Required {
+    color: $primary-color;
+  }
+
+  /* Style for the toast message */
+  .toast-message {
+    position: fixed;
+    top: 20px;
+    right: -4.5%;
+    transform: translateX(-50%);
+    background-color: #78AC4B;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  }

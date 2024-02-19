@@ -17,6 +17,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { offLoadProductPageComponent } from './off-load-product-page/off-load-product-page.component';
 import { loadProductPageComponent } from './load-product-page/load-product-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { waybilPrintPageComponent } from './waybil-print-page/waybil-print-page.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardPageComponent,
     offLoadProductPageComponent,
     loadProductPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    waybilPrintPageComponent,
   ],
   imports: [
     BrowserModule,
