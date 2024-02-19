@@ -60,7 +60,7 @@ export class addVehiclePageComponent {
             created: new Date(),
             archived: false,
           };
-
+          this.toastMessage = 'Vehicle Added Successfully!';
           this.loadVehicles();
         }
         else{
@@ -94,14 +94,6 @@ export class addVehiclePageComponent {
           })
   }
 
-  onSubmit() {
-    // Your form submission logic goes here
-    // Assuming the form submission is successful, set the toast message
-    this.toastMessage = 'Vehicle Added Successfully!';
-    // Reset the toast message after a certain duration (e.g., 3 seconds)
-    setTimeout(() => {
-      this.toastMessage = '';
-    }, 6000);
-  }
+
 
 }

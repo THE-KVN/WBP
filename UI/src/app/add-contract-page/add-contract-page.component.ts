@@ -11,6 +11,7 @@ import { ApiResponse } from "../interfaces/ViewModels";
 })
 export class addContractPageComponent implements OnInit {
   showModal: boolean = false;
+  toastMessage : string = "";
 
   isLoadingContracts : boolean = false;
   isLoadingAddContract : boolean = false;

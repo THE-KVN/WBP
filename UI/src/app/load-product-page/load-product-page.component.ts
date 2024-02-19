@@ -12,6 +12,8 @@ import { ApiResponse } from "../interfaces/ViewModels";
 export class loadProductPageComponent implements OnInit {
 
 error : string = "";
+toastMessage : string = "";
+
 selectedContractString : string = "";
 selectedSiloString : string = "";
 
@@ -208,5 +210,8 @@ const secondPart = parseInt(parts[1]);
         this.selectedSiloString = selectedId;
       }
 
+onSubmit()
+{
 
+}
 }

@@ -11,7 +11,7 @@ import { ApiResponse } from "../interfaces/ViewModels";
 })
 export class addCustomerPageComponent implements OnInit {
   showModal: boolean = false;
-
+  toastMessage: string = '';
   isLoadingCustomers : boolean = false;
   isLoadingAddCustomer : boolean = false;
   isLoadingEditDelete : boolean = false;

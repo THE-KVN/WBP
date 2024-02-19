@@ -12,6 +12,7 @@ import { ApiResponse } from "../interfaces/ViewModels";
 })
 export class adjustSiloLevelsPageComponent implements OnInit {
   showModal: boolean = false;
+  toastMessageEdit : string = "";
 
   isLoadingSilos : boolean = false;
   isLoadingEdit : boolean = false;

@@ -11,6 +11,7 @@ import { ApiResponse } from "../interfaces/ViewModels";
 })
 export class addSiloProductPageComponent implements OnInit {
   showModal: boolean = false;
+  toastMessage: string = '';
 
   isLoadingAdd : boolean = false;
   isLoadingList : boolean = false;
