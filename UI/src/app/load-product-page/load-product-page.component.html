@@ -2,7 +2,7 @@
  
   <h2>Load Product</h2>
 
-  <form >
+  <form (ngSubmit)="onSubmit()">
     <h3>Load Product Details</h3>
 
     <!-- <label class="Input-Lables" for="contractId">Contract Number: <span class="Required">*</span></label>
@@ -51,5 +51,10 @@
     </div>
     
   </form>
+
+  <!-- Toast message -->
+  <div *ngIf="toastMessage" class="toast-message">
+    {{ toastMessage }}
+  </div>
 
 </div>

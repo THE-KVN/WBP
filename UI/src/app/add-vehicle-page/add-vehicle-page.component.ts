@@ -12,6 +12,7 @@ import { ApiResponse } from "../interfaces/ViewModels";
 
 // export class addVehiclePageComponent implements OnInit
 export class addVehiclePageComponent {
+  toastMessage: string = '';
 
   isLoading : boolean = false;
   isLoadingVehicles : boolean = false;
@@ -91,6 +92,16 @@ export class addVehiclePageComponent {
               console.log('api/Vehicle: ' + this.error);
             }
           })
+  }
+
+  onSubmit() {
+    // Your form submission logic goes here
+    // Assuming the form submission is successful, set the toast message
+    this.toastMessage = 'Vehicle Added Successfully!';
+    // Reset the toast message after a certain duration (e.g., 3 seconds)
+    setTimeout(() => {
+      this.toastMessage = '';
+    }, 6000);
   }
 
 }

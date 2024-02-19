@@ -29,6 +29,11 @@
     
   </form>
 
+  <!-- Toast message -->
+  <div *ngIf="toastMessage" class="toast-message">
+    {{ toastMessage }}
+  </div>
+
   <div>
     <label>id: {{selectedContract.id}}</label>
     <label>contractNumber: {{selectedContract.contractNumber}}</label>
@@ -136,5 +141,10 @@
   </div>
   
 </form>
+
+<!-- Toast message -->
+<div *ngIf="toastMessageEdit" class="toast-message-edit">
+  Contract Edited Successfully!
+</div>
   
 </div>
