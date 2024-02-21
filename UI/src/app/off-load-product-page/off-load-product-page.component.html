@@ -1,38 +1,108 @@
 <div class="register-container">
-
+ 
   <h2>Off Load Product</h2>
 
-  <form (ngSubmit)="onSubmit()">
+  <div style="display:grid;">
     <h3>Off Load Product Details</h3>
-    
-    <label class="Input-Lables" for="plateNumber">Choose Silo <span class="Required">*</span></label>
-    <input type="text" id="firstname" placeholder="Enter Silo Name" required>
 
-    <label class="Input-Lables" for="type">Choose Vehicle <span class="Required">*</span></label>
-    <select name="languages" id="vehicle" placeholder="Choose Vehicle" required>
-      <option value="Vehicle">Vehicle 1</option>
-      <option value="Vehicle">Vehicle 2</option>
-      <option value="Vehicle">Vehicle 3</option>
-      <option value="Vehicle">Vehicle 4</option>
-      <option value="Vehicle">Vehicle 5</option>
-      <option value="Vehicle">Vehicle 6</option>
-      <option value="Vehicle">Vehicle 7</option>
-      <option value="Vehicle">Vehicle 8</option>
-    </select>
+    <table class="Info-Table-Form">
+      <tbody>
+        <tr>
+          <td class="dataheader"><strong>Contract Number:</strong></td>
+          <td class="datacell"><select id="contractIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_contracts" [(ngModel)]="selectedContractString" (change)="contractSelectionChanged($event.target.value)">
+            <option *ngFor="let contract of all_contracts" [ngValue]="contract.id">{{contract.customer.customerName}} - {{ contract.contractNumber }}</option>
+          </select></td>     
+      </tr>
+          <tr>
+              <td class="dataheader"><strong>Customer:</strong></td>
+              <td class="datacell">{{selectedCustomer.customerName}}</td>
+          </tr>
+          <tr>
+            <td class="dataheader"><strong>Product:</strong></td>
+            <td class="datacell">{{selectedProduct.productName}}</td>
+        </tr>
 
-    <label class="Input-Lables" for="make">Type Of Product <span class="Required">*</span></label>
-    <input type="text" id="email" placeholder="Enter Type Of Product" required>
+        <tr>
+          <td class="dataheader"><strong>Silo:</strong></td>
+          <td class="datacell"><select id="siloIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_silos" [(ngModel)]="selectedSiloString" (change)="siloSelectionChanged($event.target.value)">
+            <option *ngFor="let silo of all_silos" [ngValue]="silo.id">{{silo.friendlyName}}</option>
+          </select></td>     
+        </tr>
 
-    <label class="Input-Lables" for="model">Weight Being Added (First Weight) <span class="Required">*</span></label>
-    <input type="text" id="cellNumber" placeholder="Enter Weight Being Added (First Weight)" required>
-    
-    <div class="Buttons-Parent">
+        <tr>
+          <td class="dataheader"><strong>Vehicle:</strong></td>
+          <td class="datacell"><select id="vehicleIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_vehicles" [(ngModel)]="selectedVehicleString" (change)="vehicleSelectionChanged($event.target.value)">
+            <option *ngFor="let vehicle of all_vehicles" [ngValue]="vehicle.id">{{vehicle.make}} - {{vehicle.registrationNumber}}</option>
+          </select></td>     
+        </tr>
+
+        <tr>
+          <td class="dataheader"><strong>First Weight:</strong></td>
+          <td class="datacell"><input type="text" class="Input-Styling" style="width: 98%;margin-bottom: 0px;" id="firstWeight" placeholder="Enter First Weight" [(ngModel)]="siloLoad.firstWeight" required></td>     
+        </tr>
+
+
+      </tbody>
+  </table>
+
+
+
+
+
+    <div class="Buttons-Parent" style="margin-top:10px;width:50%;">
       <div class="button-1-parent">
-        <button class="button-2" type="submit">ADD OFF LOAD PRODUCT</button>
+        <button class="button-2" (click)="onSubmit()">ADD OFF LOAD PRODUCT</button>
       </div>
     </div>
     
-  </form>
+  </div>
+
+
+  <!-- OFF LOADS-->
+  <div class="Dashboard-Fourth-Layout-Blocks">
+    <div class="Dashboard-Layout-Block-List">
+      <h3>Finalized Off Loads</h3>
+
+      <table class="Info-Table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Reference</th>
+                <th>Silo</th>
+                <th>Product</th>
+                <th>Contract Number</th>
+                <th>Vehicle</th>
+                <th>Total Weight</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of finalizedOffLoads">
+                <td><img
+                  src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiBoZWlnaHQ9IjgwMHB4IiB3aWR0aD0iODAwcHgiIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MTIuMDAyIDUxMi4wMDIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoNPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiLz4KDTxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgoNPGcgaWQ9IlNWR1JlcG9faWNvbkNhcnJpZXIiPiA8Zz4gPGc+IDxnPiA8cGF0aCBkPSJNMjkwLjEzNSwyNjguMDY3djIwMS4yNjdjMCw0LjcxLDMuODIzLDguNTMzLDguNTMzLDguNTMzczguNTMzLTMuODIzLDguNTMzLTguNTMzVjI4NS4xMzRsMi41LDIuNSBjMS42NjQsMS42NjQsMy44NDksMi41LDYuMDMzLDIuNXM0LjM2OS0wLjgzNiw2LjAzMy0yLjVjMy4zMzctMy4zMzcsMy4zMzctOC43MywwLTEyLjA2NmwtMTcuMDU4LTE3LjA2N2gtMC4wMDlsLTQ4LjctNDguNyB2LTMwLjYwMWMwLTQuNzEtMy44MjMtOC41MzMtOC41MzMtOC41MzNzLTguNTMzLDMuODIzLTguNTMzLDguNTMzdjI1LjZINzYuODAyYy0yLjI2MSwwLTQuNDM3LDAuODk2LTYuMDMzLDIuNWwtNTEuMiw1MS4xOTEgYzAsMC4wMDgsMCwwLjAwOC0wLjAwOSwwLjAwOEwyLjUwMiwyNzUuNTY4Yy0zLjMzNiwzLjMzNi0zLjMzNiw4LjczLDAsMTIuMDY2YzMuMzM3LDMuMzM2LDguNzMsMy4zMzYsMTIuMDY2LDBsMi41LTIuNXYxODQuMjAxIGMwLDQuNzEsMy44MjMsOC41MzMsOC41MzMsOC41MzNjNC43MSwwLDguNTMzLTMuODIzLDguNTMzLTguNTMzVjI2OC4wNjdsNDYuMi00Ni4xOTloMTYzLjYwMUwyOTAuMTM1LDI2OC4wNjd6Ii8+IDxwYXRoIGQ9Ik01OS43MzUsNDk0LjkzNGgtNTEuMmMtNC43MSwwLTguNTMzLDMuODIzLTguNTMzLDguNTMzczMuODIzLDguNTMzLDguNTMzLDguNTMzaDUxLjJjNC43MSwwLDguNTMzLTMuODIzLDguNTMzLTguNTMzIFM2NC40NDYsNDk0LjkzNCw1OS43MzUsNDk0LjkzNHoiLz4gPHBhdGggZD0iTTQzMS4xNCw1MC41NzhjLTMuOTYtMi41NjktOS4yNS0xLjQ0Mi0xMS44MDIsMi41MDljLTIuNTY5LDMuOTU5LTEuNDQyLDkuMjQyLDIuNTA5LDExLjgwMiBjMTQuODU3LDkuNjQzLDI2LjU5OCwyMy45OTYsMzMuMDU4LDQwLjQxNGMxLjMyMywzLjM1NCw0LjU0LDUuNDEsNy45NDUsNS40MWMxLjA0MSwwLDIuMDk5LTAuMTg4LDMuMTIzLTAuNTk3IGM0LjM4Ni0xLjcyNCw2LjU0NS02LjY4Miw0LjgxMy0xMS4wNjhDNDYyLjkxOCw3OS4wNzEsNDQ5LjIxNCw2Mi4zMDMsNDMxLjE0LDUwLjU3OHoiLz4gPHBhdGggZD0iTTIzMy42NTMsMzI0LjkwOGMtMC45OS0wLjQxLTIuMDgyLTAuNjQtMy4yMjYtMC42NGgtMC4wMjZIOTMuODY5aC0wLjAyNmMtMS4xNDMsMC0yLjIzNiwwLjIzLTMuMjI2LDAuNjQgYy0xLjAxNiwwLjQxOC0xLjk2MywxLjA0MS0yLjc4MiwxLjg2Yy0wLjgxOSwwLjgxOS0xLjQ0MiwxLjc2Ni0xLjg2LDIuNzgyYy0wLjQxLDAuOTktMC42NCwyLjA4Mi0wLjY0LDMuMjI2djAuMDI2djEzNi41MzMgYzAsMy40NDcsMi4wODIsNi41NjIsNS4yNjUsNy44ODVjMy4xODMsMS4zMTQsNi44NTIsMC41ODksOS4zMDEtMS44NTJsNjIuMjM0LTYyLjIzNGw2Mi4yMzQsNjIuMjM0IGMxLjYzLDEuNjMsMy44MTQsMi41LDYuMDMzLDIuNWMxLjEwMSwwLDIuMjEtMC4yMTMsMy4yNjgtMC42NDljMy4xODMtMS4zMjMsNS4yNjUtNC40MzcsNS4yNjUtNy44ODVWMzMyLjgwMXYtMC4wMjYgYzAtMS4xNDMtMC4yMy0yLjIzNi0wLjY0LTMuMjI2Yy0wLjQxOC0xLjAxNi0xLjA0MS0xLjk2My0xLjg2LTIuNzgyQzIzNS42MTYsMzI1Ljk0OSwyMzQuNjY5LDMyNS4zMjYsMjMzLjY1MywzMjQuOTA4eiBNMTAyLjQwMiw0NDguNzM1di05NS4zMzRsNDcuNjY3LDQ3LjY2N0wxMDIuNDAyLDQ0OC43MzV6IE0xMTQuNDY4LDM0MS4zMzRoOTUuMzM0bC00Ny42NjcsNDcuNjY3TDExNC40NjgsMzQxLjMzNHogTTIyMS44NjksNDQ4LjczNWwtNDcuNjY3LTQ3LjY2N2w0Ny42NjctNDcuNjY3VjQ0OC43MzV6Ii8+IDxwYXRoIGQ9Ik0zNzUuNDY5LDAuMDAxYy03NS4yODEsMC0xMzYuNTMzLDYxLjI1Mi0xMzYuNTMzLDEzNi41MzN2OC41MzNjMCw0LjcxLDMuODIzLDguNTMzLDguNTMzLDguNTMzaDE0NS4wNjd2MzE1LjczMyBjMCw0LjcxLDMuODIzLDguNTMzLDguNTMzLDguNTMzYzQuNzEsMCw4LjUzMy0zLjgyMyw4LjUzMy04LjUzM3YtOC41MzNoNTEuMnY4LjUzM2MwLDQuNzEsMy44MjMsOC41MzMsOC41MzMsOC41MzMgYzQuNzEsMCw4LjUzMy0zLjgyMyw4LjUzMy04LjUzM1YxNDUuMDY4YzAtNC43MS0zLjgyMy04LjUzMy04LjUzMy04LjUzM0gyNTYuMDAyYzAtNjUuODc3LDUzLjU4OS0xMTkuNDY3LDExOS40NjctMTE5LjQ2NyBzMTE5LjQ2Nyw1My41ODksMTE5LjQ2NywxMTkuNDY3djMzMi44YzAsNC43MSwzLjgyMyw4LjUzMyw4LjUzMyw4LjUzM3M4LjUzMy0zLjgyMyw4LjUzMy04LjUzM3YtMzMyLjggQzUxMi4wMDIsNjEuMjUzLDQ1MC43NSwwLjAwMSwzNzUuNDY5LDAuMDAxeiBNNDA5LjYwMiwxNTMuNjAxaDUxLjJ2MzQuMTMzaC01MS4yVjE1My42MDF6IE00MDkuNjAyLDIwNC44MDFoNTEuMnYzNC4xMzNoLTUxLjIgVjIwNC44MDF6IE00MDkuNjAyLDI1Ni4wMDFoNTEuMnYzNC4xMzNoLTUxLjJWMjU2LjAwMXogTTQwOS42MDIsMzA3LjIwMWg1MS4ydjM0LjEzM2gtNTEuMlYzMDcuMjAxeiBNNDA5LjYwMiwzNTguNDAxaDUxLjIgdjM0LjEzM2gtNTEuMlYzNTguNDAxeiBNNDA5LjYwMiw0MDkuNjAxaDUxLjJ2MzQuMTMzaC01MS4yVjQwOS42MDF6Ii8+IDxwYXRoIGQ9Ik01MDMuNDY5LDQ5NC45MzRoLTE3LjA2N2MtNC43MSwwLTguNTMzLDMuODIzLTguNTMzLDguNTMzczMuODIzLDguNTMzLDguNTMzLDguNTMzaDE3LjA2NyBjNC43MSwwLDguNTMzLTMuODIzLDguNTMzLTguNTMzUzUwOC4xNzksNDk0LjkzNCw1MDMuNDY5LDQ5NC45MzR6Ii8+IDxwYXRoIGQ9Ik00NTIuMjY5LDQ5NC45MzRoLTM1OC40Yy00LjcxLDAtOC41MzMsMy44MjMtOC41MzMsOC41MzNzMy44MjMsOC41MzMsOC41MzMsOC41MzNoMzU4LjRjNC43MSwwLDguNTMzLTMuODIzLDguNTMzLTguNTMzIFM0NTYuOTc5LDQ5NC45MzQsNDUyLjI2OSw0OTQuOTM0eiIvPiA8L2c+IDwvZz4gPC9nPiA8L2c+Cg08L3N2Zz4="
+                  class="Silo-Svg"
+                  alt="African Theme Image 1"
+                /></td>
+                <td><strong>{{ item.wayBillNumber }}</strong></td>
+                <td><strong>{{ item.silo.friendlyName }}</strong></td>
+                <td><strong>{{ item.product.productName }} ({{
+                  item.product.productGrading
+                }})</strong></td>
+                <td><strong>{{ item.contract.contractNumber }}</strong></td>
+                <td><strong>{{ item.vehicle.registrationNumber }}</strong></td>
+                <td><strong>{{ item.totalWeigth }}</strong></td>
+                <td><div>
+                  <button class="Sidebar-Password-Button" (click)="viewWaybill(item)">
+                    Waybill
+                  </button>
+                </div></td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+  </div>
+
 
   <!-- Toast message -->
   <div *ngIf="toastMessage" class="toast-message">

@@ -26,6 +26,38 @@ export class DashboardPageComponent {
   currentLoads : SiloLoad[];
   currentOffLoads : SiloLoad[];
 
+  selectedSiloLoad : SiloLoad = {
+    id: 0,
+    loadTypeId: undefined, // Or a default LoadType value
+    loadType: "",
+    firstWeight: 0,
+    secondWeight: 0,
+    totalWeigth: 0,
+    firstWeightDate: undefined,
+    secondWeightDate: undefined,
+    isFinalized: false,
+    finalizedDate: undefined,
+    siloId: undefined,
+    silo: undefined,
+    productId: undefined,
+    product: undefined,
+    contractId: undefined,
+    contract: undefined,
+    vehicleId: undefined,
+    vehicle: undefined,
+    created: new Date(), // Set a default creation date
+    modified: undefined,
+    archived: false,
+    wayBillNumber: ""
+  };;
+
+showFinalize : boolean = true;
+disableFinalize : boolean = false;
+finnalizeStatus : string = "FINALIZE";
+finalizeClass : string = "button-1";
+
+showWayBill : boolean = false;
+
 
   constructor(private apiService: ApiDataService) { }
 
@@ -35,9 +67,107 @@ export class DashboardPageComponent {
     this.loadCurrentOffLoads();
   }
 
-  openModal() {
+  finalizeLoadModal(s : SiloLoad) {
+    this.selectedSiloLoad = s;
+    console.log("selected silo load: " + JSON.stringify(this.selectedSiloLoad));
+    this.showFinalize  = true;
+    this.showWayBill  = false;
+    this.disableFinalize = false;
+    this.finnalizeStatus = "FINALIZE";
+    this.finalizeClass = "button-1";
     this.showModal = true;
   }
+
+  onFinalizeLaod()
+  {
+    console.log("FINALZING...");
+    this.showFinalize  = true;
+    this.showWayBill  = false;
+    this.disableFinalize = true;
+    this.finnalizeStatus = "FINALZING...";
+    this.finalizeClass = "button-2";
+
+    //api post call
+    var postUrl = "";
+if (this.selectedSiloLoad.loadTypeId === 0)
+{
+  postUrl = "api/finalizeload";
+}
+else
+{
+  postUrl = "api/finalizeoffload";
+}
+
+    this.apiService.post<ApiResponse>(postUrl,this.selectedSiloLoad)
+    .subscribe(result => {
+      var resp = result;
+      if (resp.success)
+      {
+        this.selectedSiloLoad = resp.item;
+        console.log('post api/finalizeload :' + JSON.stringify(this.selectedSiloLoad));
+
+        this.loadCurrentLoads();
+
+        this.showFinalize  = true;
+        this.showWayBill  = true;
+        this.disableFinalize = true;
+        this.finnalizeStatus = "FINALZED";
+        this.finalizeClass = "button-2";
+      }
+      else{
+        this.error = resp.message;
+        console.log('post api/finalizeload :' + this.error);
+      }
+    })
+  }
+
+  onViewWaybill()
+  {
+    //api get call
+    this.apiService.get<ApiResponse>('api/generatewaybil/' + this.selectedSiloLoad.id)
+      .subscribe(result => {
+        var resp = result;
+        if (resp.success)
+        {
+          //resp.file is a byt
+          console.log('api/generatewaybil : ' + JSON.stringify(resp));
+
+          var byteArray = this.base64ToArrayBuffer(resp.message);
+          let blob: any = new Blob([byteArray], { type: 'application/pdf' });
+          var link = document.createElement('a');
+          link.href = window.URL.createObjectURL(blob);
+          link.download = this.selectedSiloLoad.wayBillNumber + ".pdf";
+          link.click();
+
+          //this.openPdfInNewTab(blob);
+        }
+        else{
+          this.error = resp.message;
+          console.log('api/generatewaybil : ' + this.error);
+        }
+      })
+  }
+
+  openPdfInNewTab(blob: Blob) {
+    // 3. Create a URL for the blob
+    const url = window.URL.createObjectURL(blob);
+    console.log('wb url : ' + url);
+    // 4. Open the URL in a new tab
+    window.open(url, '_blank');
+  
+    // 5. Revoke the object URL once the tab is closed
+    window.URL.revokeObjectURL(url);
+  }
+
+  base64ToArrayBuffer(base64:any):ArrayBuffer {
+    var binary_string =  window.atob(base64);
+    var len = binary_string.length;
+    var bytes = new Uint8Array( len );
+    for (var i = 0; i < len; i++)        {
+        bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes.buffer;
+}
 
   closeModal() {
     this.showModal = false;

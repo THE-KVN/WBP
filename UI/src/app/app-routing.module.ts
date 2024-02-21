@@ -10,6 +10,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { offLoadProductPageComponent } from './off-load-product-page/off-load-product-page.component';
 import { loadProductPageComponent } from './load-product-page/load-product-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ExportReportPageComponent } from './export-report-page/export-report-page.component';
 
 const routes: Routes = [
   { path: '', component: DashboardPageComponent }, // Define the dashboard route
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'loadProduct', component: loadProductPageComponent },
   { path: 'offLoadProduct', component: offLoadProductPageComponent },
   { path: 'profile', component: ProfilePageComponent },
+  { path: 'exportReport', component: ExportReportPageComponent },
 ];
 
 @NgModule({

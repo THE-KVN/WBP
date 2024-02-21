@@ -17,7 +17,7 @@ namespace WBP
             // Add DbContext configuration
             builder.Services.AddDbContext<WBContext>(options =>
                 options.UseSqlite(
-                    "Data Source=C:\\WB\\Database\\wb.db"
+                    "Data Source=C:\\WB\\Database\\wbprod.db"
                 )
             );
 

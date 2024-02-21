@@ -35,6 +35,7 @@ interface SiloLoad {
   created: Date;
   modified?: Date;
   archived: boolean;
+  wayBillNumber: string;
 }
 
 interface Vehicle {

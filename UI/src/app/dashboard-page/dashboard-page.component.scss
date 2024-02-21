@@ -1,5 +1,51 @@
 @import '../variables.scss';
 
+.Silo-Svg {
+  width: 40px;
+    margin-top: 15px;
+}
+
+.Info-Section {
+  display: flex;
+  padding: 0 0.7em;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between
+}
+
+
+.Info-Table {
+  /* Your desired table styles */
+  border-collapse: collapse; /* Removes borders between cells */
+  width: 100%; /* Or desired width */
+
+}
+
+.Info-Table th {
+  /* Styling for table headers */
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px; /* Add padding */
+  text-align: left; /* Align left by default */
+
+  width: 14%; /* This assumes you have 6 columns */
+  text-align: center; /* Optional, for centering content */
+}
+
+.Info-Table td {
+  /* Styling for table data cells */
+  padding: 5px; /* Add padding */
+
+  width: 14%; /* This assumes you have 6 columns */
+  text-align: center; /* Optional, for centering content */
+}
+.Input-Styling {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid $secondary-background-color;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
 .home-container {
     text-align: center;
     padding: 3em 0em 1.7em 0em; /* Optional: Add padding for better spacing */
@@ -210,13 +256,7 @@
     border-bottom: 1px solid $Third-background-color;
   }
 
-  .Info-Section {
-    display: flex;
-    padding: 0em 0.7em 0em 0.7em;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-  }
+
 
   p {
     margin: 0;
@@ -226,9 +266,7 @@
     margin: 0;
   }
 
-  .Silo-Svg {
-    width: 5em;
-  }
+
 
   .Sidebar-Password-Button {
     padding: 6px 6px;

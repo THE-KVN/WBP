@@ -18,6 +18,7 @@ import { offLoadProductPageComponent } from './off-load-product-page/off-load-pr
 import { loadProductPageComponent } from './load-product-page/load-product-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExportReportPageComponent } from './export-report-page/export-report-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardPageComponent,
     offLoadProductPageComponent,
     loadProductPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ExportReportPageComponent
   ],
   imports: [
     BrowserModule,

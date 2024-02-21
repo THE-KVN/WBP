@@ -1,0 +1,25 @@
+<div class="register-container">
+
+    <h2 class="h2-headings">Export Loads</h2>
+
+    <form (ngSubmit)="onSubmit()">
+        <h3>Export a list of loads for the selected customer(s)</h3>
+        
+        <label for="customer" class="Input-Lables">Customer:</label>
+        <select id="customer" [(ngModel)]="selectedCustomer.id">
+            <option value="99999">All Customers</option>
+            <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.customerName }}</option>
+        </select>
+    
+        <div class="Buttons-Parent">
+          <div class="button-1-parent">
+            <button class="button-2" type="submit">EXPORT</button>
+          </div>
+        </div>
+        
+      </form>
+      <div class="error-message" *ngIf="error && error.trim()">
+        <span class="icon-error">!</span>
+        <p>{{ error }}</p> 
+      </div>
+</div>

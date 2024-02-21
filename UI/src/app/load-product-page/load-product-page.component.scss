@@ -1,10 +1,54 @@
 @import '../variables.scss';
 
-.Info-Table {
+.Silo-Svg {
+  width: 40px;
+    margin-top: 15px;
+}
+
+.Info-Section {
+  display: flex;
+  padding: 0 0.7em;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between
+}
+.Sidebar-Password-Button {
+  padding: 6px 6px;
+  background-color: #78AC4B;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Info-Table-Form {
   /* Your desired table styles */
   border-collapse: collapse; /* Removes borders between cells */
   width: 50%; /* Or desired width */
-  margin-bottom: 20px;
+
+}
+
+.Info-Table-Form th {
+  /* Styling for table headers */
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px; /* Add padding */
+  text-align: left; /* Align left by default */
+
+
+}
+
+.Info-Table-Form td {
+  /* Styling for table data cells */
+  padding: 5px; /* Add padding */
+
+
+}
+
+.Info-Table {
+  /* Your desired table styles */
+  border-collapse: collapse; /* Removes borders between cells */
+  width: 100%; /* Or desired width */
+
 }
 
 .Info-Table th {
@@ -12,12 +56,24 @@
   background-color: #f2f2f2; /* Light gray background */
   padding: 10px; /* Add padding */
   text-align: left; /* Align left by default */
+
+  width: 12%; /* This assumes you have 6 columns */
+  text-align: center; /* Optional, for centering content */
 }
 
 .Info-Table td {
   /* Styling for table data cells */
   padding: 5px; /* Add padding */
-  
+
+  width: 12%; /* This assumes you have 6 columns */
+  text-align: center; /* Optional, for centering content */
+}
+.Input-Styling {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid $secondary-background-color;
+  border-radius: 3px;
+  background-color: transparent;
 }
 table, th {
   border: 1px solid $primary-color;

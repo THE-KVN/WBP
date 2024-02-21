@@ -1,4 +1,25 @@
 @import '../variables.scss';
+
+.error-message {
+  background-color: #f2dede;
+  border: 1px solid #e9b4b4;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-error {
+  color: #c0392b;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.error-message p {
+  margin: 0;
+}
+
+
 .Silo-Svg {
   width: 40px;
     margin-top: 15px;
@@ -24,17 +45,11 @@
   background-color: #f2f2f2; /* Light gray background */
   padding: 10px; /* Add padding */
   text-align: left; /* Align left by default */
-
-  width: 16.6666%; /* This assumes you have 6 columns */
-  text-align: center; /* Optional, for centering content */
 }
 
 .Info-Table td {
   /* Styling for table data cells */
   padding: 5px; /* Add padding */
-
-  width: 16.6666%; /* This assumes you have 6 columns */
-  text-align: center; /* Optional, for centering content */
 }
 .Input-Styling {
   padding: 5px;

@@ -8,6 +8,8 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class ApiDataService {
 
+  //private baseUrl = 'http://localhost:7010'; // Replace with your actual base URL
+
   private baseUrl = 'https://localhost:7010'; // Replace with your actual base URL
 
   constructor(private http: HttpClient) { }

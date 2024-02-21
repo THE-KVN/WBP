@@ -32,6 +32,7 @@ export class addSiloProductPageComponent implements OnInit {
 
   selectedProduct : Product;
 
+
   constructor(private apiService: ApiDataService) { }
 
   ngOnInit(): void {

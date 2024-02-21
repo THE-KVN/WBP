@@ -1,5 +1,14 @@
 @import '../variables.scss';
 
+
+.Input-Styling {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid $secondary-background-color;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
 .register-container {
   margin-left: 16.2em;
   padding: 2em;

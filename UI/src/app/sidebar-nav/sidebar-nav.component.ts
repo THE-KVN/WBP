@@ -40,6 +40,7 @@ error: string = "";
   constructor(private apiService: ApiDataService) { }
 
   ngOnInit(): void {
+    this.selectedTab = 'dashboard';
   }
 
   showDashboard() {

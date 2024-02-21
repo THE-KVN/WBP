@@ -64,7 +64,7 @@ namespace WBP.Entities
         public int? VehicleId { get; set; }
         public virtual Vehicle? Vehicle { get; set; }
 
-
+        public string WayBillNumber { get; set; }
         public SiloLoad() { }
     }
 

@@ -28,18 +28,19 @@ export class adjustSiloLevelsPageComponent implements OnInit {
     capacity: 0,
     spaceAvailable: 0,
     precentageFull: 0,
-    productId: undefined, // Optional property
+    productId: 0, // Optional property
     product: undefined, // Optional property
     created: new Date(),
     archived: false,
-  };;
+  };
 
-
+  products : Product[];
 
   constructor(private apiService: ApiDataService) { }
 
   ngOnInit(): void {
     this.loadSilos();
+    this.loadProducts();
   }
 
   loadSilos()
@@ -63,7 +64,23 @@ export class adjustSiloLevelsPageComponent implements OnInit {
       })
   }
 
-
+  loadProducts()
+  {
+        //api get call
+        this.apiService.get<ApiResponse>('api/Product')
+          .subscribe(result => {
+            var resp = result;
+            if (resp.success)
+            {
+              this.products = resp.items;
+              console.log('api/Product: ' + JSON.stringify(this.products));
+            }
+            else{
+              this.error = resp.message;
+              console.log('api/Product: ' + this.error);
+            }
+          })
+  }
 
   EditSiloModal(s : Silo) {
     this.selectedSilo = s;
@@ -101,6 +118,7 @@ export class adjustSiloLevelsPageComponent implements OnInit {
             archived: false,
           };
           this.closeModal();
+          this.toastMessageEdit = 'Contract Edited Successfully!';
           this.loadSilos();
         }
         else{
@@ -119,14 +137,6 @@ export class adjustSiloLevelsPageComponent implements OnInit {
     this.showModal = false;
   }
 
-  onSubmitEdit() {
-    // Your form submission logic goes here
-    // Assuming the form submission is successful, set the toast message
-    this.toastMessageEdit = 'Contract Edited Successfully!';
-    // Reset the toast message after a certain duration (e.g., 3 seconds)
-    setTimeout(() => {
-      this.toastMessageEdit = '';
-    }, 6000);
-  }
+
 
 }

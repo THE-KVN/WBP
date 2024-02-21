@@ -105,35 +105,29 @@ namespace WBP.Controllers
 
         // DELETE: api/Contract/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteContract(int id)
+        public async Task<ActionResult<Response>> DeleteContract(int id)
         {
             var contract = await _context.Contracts.FindAsync(id);
             if (contract == null)
             {
-                return NotFound();
+                return Ok(new Response()
+                {
+                    success = false,
+                    message = "Contract not found"
+                });
             }
 
             contract.Modified = DateTime.Now;
             contract.Archived = true;
             _context.Entry(contract).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ContractExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new Response()
+            {
+                success = true,
+                item = contract
+            });
         }
 
         private bool ContractExists(int id)

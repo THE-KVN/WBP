@@ -16,9 +16,9 @@
   </form>
 
   <!-- Toast message -->
-  <div *ngIf="toastMessage" class="toast-message">
+  <!-- <div *ngIf="toastMessage" class="toast-message">
     {{ toastMessage }}
-  </div>
+  </div> -->
 
   <div class="Dashboard-Third-Layout-Blocks">
     <div class="Dashboard-Layout-Block-List">
@@ -52,11 +52,11 @@
 <!-- Your modal content here -->
 <!-- Add your form or editable fields here -->
 
-<form (ngSubmit)="onSubmitEdit()">
+<div style="display:grid">
   <h3>Edit Customer</h3>
   
   <label class="Input-Lables">Customer Name <span class="Required">*</span></label>
-  <input type="text" placeholder="Enter Customer Name" [(ngModel)]="selectedCustomer.customerName" required>
+  <input type="text" class="Input-Styling" placeholder="Enter Customer Name" [(ngModel)]="selectedCustomer.customerName" required>
   
   <div class="Buttons-Parent">
     <div class="button-1-parent">
@@ -68,11 +68,11 @@
     </div>
   </div>
   
-</form>
+</div>
 
 <!-- Toast message -->
-<div *ngIf="toastMessageEdit" class="toast-message-edit">
+<!-- <div *ngIf="toastMessageEdit" class="toast-message-edit">
   Customer Edited Successfully!
-</div>
+</div> -->
   
 </div>

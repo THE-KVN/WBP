@@ -30,18 +30,11 @@
   </form>
 
   <!-- Toast message -->
-  <div *ngIf="toastMessage" class="toast-message">
+  <!-- <div *ngIf="toastMessage" class="toast-message">
     {{ toastMessage }}
-  </div>
+  </div> -->
 
-  <div>
-    <label>id: {{selectedContract.id}}</label>
-    <label>contractNumber: {{selectedContract.contractNumber}}</label>
-    <label>maxTonnages: {{selectedContract.maxTonnages}}</label>
-    <label>customerId: {{selectedContract.customerId}}</label>
-    <label>productId: {{selectedContract.productId}}</label>
-  
-  </div>
+
 
 
 
@@ -49,44 +42,41 @@
     <div class="Dashboard-Layout-Block-List">
   
       <h3 style="text-align: left;">Contracts</h3>
-      <div *ngFor="let item of contracts">
-        <div class="Newsfeed-Info-Parent">
-   
-          <div>
-            <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiBoZWlnaHQ9IjgwMHB4IiB3aWR0aD0iODAwcHgiIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDMxNS43NTIgMzE1Ljc1MiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cg08ZyBpZD0iU1ZHUmVwb19iZ0NhcnJpZXIiIHN0cm9rZS13aWR0aD0iMCIvPgoNPGcgaWQ9IlNWR1JlcG9fdHJhY2VyQ2FycmllciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cg08ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxnPiA8cGF0aCBkPSJNMjYzLjg5LDguNzQzYy0zLjAzOSwwLTUuNTAzLDIuNDY0LTUuNTAzLDUuNTAzdjI1Ny42MDdjMCwwLjg1NCwwLjE5OSwxLjY5NiwwLjU4MSwyLjQ2MWwxNC44MjksMjkuNjU0IGMwLjkzMiwxLjg2NCwyLjgzNywzLjA0Miw0LjkyMiwzLjA0MmMyLjA4NCwwLDMuOTg5LTEuMTc4LDQuOTIyLTMuMDQybDE0LjgyOC0yOS42NTRjMC4zODItMC43NjUsMC41ODEtMS42MDYsMC41ODEtMi40NjFWMTQuMjQ2IGMwLTMuMDM5LTIuNDY0LTUuNTAzLTUuNTAzLTUuNTAzSDI2My44OXogTTI4OC4wNDQsMjcwLjU1MmwtOS4zMjUsMTguNjQ5bC05LjMyNi0xOC42NDlWMTkuNzQ5aDE4LjY1MVYyNzAuNTUyeiIvPiA8cGF0aCBkPSJNMzA0Ljc0Niw0OC4wMzd2ODcuNzg5YzAsMy4wMzksMi40NjQsNS41MDMsNS41MDMsNS41MDNjMy4wMzksMCw1LjUwMy0yLjQ2NCw1LjUwMy01LjUwM1Y0OC4wMzcgYzAtMy4wMzktMi40NjQtNS41MDMtNS41MDMtNS41MDNDMzA3LjIxLDQyLjUzNCwzMDQuNzQ2LDQ0Ljk5OCwzMDQuNzQ2LDQ4LjAzN3oiLz4gPHBhdGggZD0iTTE4Ni41MjYsMTY0LjY0SDQ3LjIwNGMtMy4wMzksMC01LjUwMywyLjQ2NS01LjUwMyw1LjUwNGMwLDMuMDM5LDIuNDY0LDUuNTAyLDUuNTAzLDUuNTAyaDEzOS4zMjIgYzMuMDM5LDAsNS41MDMtMi40NjMsNS41MDMtNS41MDJDMTkyLjAyOSwxNjcuMTA1LDE4OS41NjUsMTY0LjY0LDE4Ni41MjYsMTY0LjY0eiIvPiA8cGF0aCBkPSJNMTg2LjUyNiwyNDYuMDY4SDQ3LjIwNGMtMy4wMzksMC01LjUwMywyLjQ2NC01LjUwMyw1LjUwM2MwLDMuMDM5LDIuNDY0LDUuNTAzLDUuNTAzLDUuNTAzaDEzOS4zMjIgYzMuMDM5LDAsNS41MDMtMi40NjQsNS41MDMtNS41MDNDMTkyLjAyOSwyNDguNTMyLDE4OS41NjUsMjQ2LjA2OCwxODYuNTI2LDI0Ni4wNjh6Ii8+IDxwYXRoIGQ9Ik0xODYuNTI2LDEyOS4yOTVINDcuMjA0Yy0zLjAzOSwwLTUuNTAzLDIuNDY0LTUuNTAzLDUuNTAzYzAsMy4wMzksMi40NjQsNS41MDMsNS41MDMsNS41MDNoMTM5LjMyMiBjMy4wMzksMCw1LjUwMy0yLjQ2NCw1LjUwMy01LjUwM0MxOTIuMDI5LDEzMS43NTksMTg5LjU2NSwxMjkuMjk1LDE4Ni41MjYsMTI5LjI5NXoiLz4gPHBhdGggZD0iTTQ3LjIwNCwxMDQuOTU5aDgyLjcwOWMzLjAzOSwwLDUuNTAzLTIuNDY1LDUuNTAzLTUuNTA0YzAtMy4wMzktMi40NjQtNS41MDItNS41MDMtNS41MDJINDcuMjA0IGMtMy4wMzksMC01LjUwMywyLjQ2My01LjUwMyw1LjUwMkM0MS43MDEsMTAyLjQ5NCw0NC4xNjUsMTA0Ljk1OSw0Ny4yMDQsMTA0Ljk1OXoiLz4gPHBhdGggZD0iTTQ3LjIwNCw2OS42MTVoODIuNzA5YzMuMDM5LDAsNS41MDMtMi40NjMsNS41MDMtNS41MDJjMC0zLjAzOS0yLjQ2NC01LjUwNC01LjUwMy01LjUwNEg0Ny4yMDQgYy0zLjAzOSwwLTUuNTAzLDIuNDY1LTUuNTAzLDUuNTA0QzQxLjcwMSw2Ny4xNTIsNDQuMTY1LDY5LjYxNSw0Ny4yMDQsNjkuNjE1eiIvPiA8cGF0aCBkPSJNNS40ODgsMzA2LjU2OGgyMjIuNzU0YzMuMDMxLDAsNS40ODgtMi40NTcsNS40ODgtNS40ODhWODcuODQzbDAsMGwwLDBjMC0wLjAwOC0wLjAwMS0wLjAxNS0wLjAwMS0wLjAyMiBjLTAuMDAxLTAuMTc3LTAuMDEtMC4zNTMtMC4wMjctMC41MjVjLTAuMDEzLTAuMTM0LTAuMDM2LTAuMjY1LTAuMDU5LTAuMzk2Yy0wLjAwOC0wLjA0NS0wLjAxMi0wLjA5MS0wLjAyLTAuMTM2IGMtMC4wMzEtMC4xNTQtMC4wNzEtMC4zMDgtMC4xMTUtMC40NTljLTAuMDA2LTAuMDItMC4wMS0wLjA0LTAuMDE2LTAuMDYxYy0wLjA0Ny0wLjE1LTAuMTAyLTAuMjk5LTAuMTYtMC40NDYgYy0wLjAwOC0wLjAxOS0wLjAxNC0wLjAzOS0wLjAyMS0wLjA1OGMtMC4wNTctMC4xMzgtMC4xMjItMC4yNzEtMC4xOTEtMC40MDJjLTAuMDE0LTAuMDI3LTAuMDI1LTAuMDU3LTAuMDQtMC4wODQgYy0wLjA2NC0wLjExOS0wLjEzNi0wLjIzNC0wLjIwOC0wLjM0OWMtMC4wMjQtMC4wMzctMC4wNDUtMC4wNzctMC4wNjktMC4xMTNjLTAuMDY5LTAuMTAzLTAuMTQ2LTAuMjAyLTAuMjIzLTAuMzAxIGMtMC4wMzMtMC4wNDMtMC4wNjQtMC4wODktMC4wOTgtMC4xMzJjLTAuMDk1LTAuMTE1LTAuMTk3LTAuMjI1LTAuMzAzLTAuMzMzYy0wLjAyLTAuMDIxLTAuMDM2LTAuMDQzLTAuMDU3LTAuMDYzbC03My4xNzQtNzMuMTczIGMtMC4xMjctMC4xMjctMC4yNi0wLjI0Ni0wLjM5Ny0wLjM1OWMtMC4wMzYtMC4wMjktMC4wNzUtMC4wNTUtMC4xMTEtMC4wODNjLTAuMTA1LTAuMDgyLTAuMjExLTAuMTY0LTAuMzItMC4yMzcgYy0wLjAzMi0wLjAyMS0wLjA2Ny0wLjA0LTAuMS0wLjA2MWMtMC4xMTgtMC4wNzYtMC4yMzgtMC4xNS0wLjM2MS0wLjIxN2MtMC4wMjItMC4wMTItMC4wNDctMC4wMjEtMC4wNjktMC4wMzMgYy0wLjEzNy0wLjA3MS0wLjI3NS0wLjEzOS0wLjQxNy0wLjE5N2MtMC4wMTYtMC4wMDctMC4wMzItMC4wMTItMC4wNDctMC4wMThjLTAuMTUtMC4wNjEtMC4zMDMtMC4xMTYtMC40NTctMC4xNjQgYy0wLjAxOC0wLjAwNS0wLjAzNS0wLjAwOC0wLjA1My0wLjAxM2MtMC4xNTMtMC4wNDYtMC4zMDktMC4wODYtMC40NjctMC4xMThjLTAuMDQzLTAuMDA4LTAuMDg5LTAuMDEyLTAuMTMyLTAuMDIgYy0wLjEzMy0wLjAyMy0wLjI2Ni0wLjA0Ny0wLjQtMC4wNmMtMC4xODEtMC4wMTktMC4zNjQtMC4wMjgtMC41NDgtMC4wMjhsMCwwSDUuNDg4QzIuNDU3LDkuMTgzLDAsMTEuNjQsMCwxNC42NzFWMzAxLjA4IEMwLDMwNC4xMTEsMi40NTcsMzA2LjU2OCw1LjQ4OCwzMDYuNTY4eiBNMjE0Ljk5NSw4Mi4zNTdsLTU0LjQzNCwwLjAwNmwtMC4wMDMtNTQuNDQxTDIxNC45OTUsODIuMzU3eiBNMTAuOTc2LDIwLjE2aDEzOC42MDUgbDAuMDA0LDY3LjY5MmMwLDEuNDU2LDAuNTc4LDIuODUyLDEuNjA3LDMuODgxYzEuMDI5LDEuMDI4LDIuNDI2LDEuNjA2LDMuODgxLDEuNjA2bDY3LjY4Mi0wLjAwOHYyMDIuMjYxSDEwLjk3NlYyMC4xNnoiLz4gPC9nPiA8L2c+Cg08L3N2Zz4=" class="Silo-Svg" alt="African Theme Image 1">
-          </div>
-          
-          <div class="Info-Section">
-            <div>
-              <h4>Customer</h4>
-              <p>{{item.customer.customerName}}</p>
-            </div>
-            
-            <div>
-              <h4>Contract Number</h4>
-              <p>{{item.contractNumber}}</p>
-            </div>
-            
-            <div>
-              <h4>Product</h4>
-              <p>{{item.product.productName}}</p>
-            </div>
-            
-            <div>
-              <h4>Max Tonnages</h4>
-              <p>{{item.maxTonnages}}</p>
-            </div>
-            
- 
-            <div>
-              <button class="Sidebar-Password-Button" (click)="openModalContract(item)">Edit</button>
-            </div>
-          </div>
+
+      <table class="Info-Table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Customer</th>
+                <th>Contract Number</th>
+                <th>Product</th>
+                <th>Max Tonnages</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of contracts">
+                <td><img
+                  src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjNzhBQzRCIiBoZWlnaHQ9IjgwMHB4IiB3aWR0aD0iODAwcHgiIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDMxNS43NTIgMzE1Ljc1MiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cg08ZyBpZD0iU1ZHUmVwb19iZ0NhcnJpZXIiIHN0cm9rZS13aWR0aD0iMCIvPgoNPGcgaWQ9IlNWR1JlcG9fdHJhY2VyQ2FycmllciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cg08ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxnPiA8cGF0aCBkPSJNMjYzLjg5LDguNzQzYy0zLjAzOSwwLTUuNTAzLDIuNDY0LTUuNTAzLDUuNTAzdjI1Ny42MDdjMCwwLjg1NCwwLjE5OSwxLjY5NiwwLjU4MSwyLjQ2MWwxNC44MjksMjkuNjU0IGMwLjkzMiwxLjg2NCwyLjgzNywzLjA0Miw0LjkyMiwzLjA0MmMyLjA4NCwwLDMuOTg5LTEuMTc4LDQuOTIyLTMuMDQybDE0LjgyOC0yOS42NTRjMC4zODItMC43NjUsMC41ODEtMS42MDYsMC41ODEtMi40NjFWMTQuMjQ2IGMwLTMuMDM5LTIuNDY0LTUuNTAzLTUuNTAzLTUuNTAzSDI2My44OXogTTI4OC4wNDQsMjcwLjU1MmwtOS4zMjUsMTguNjQ5bC05LjMyNi0xOC42NDlWMTkuNzQ5aDE4LjY1MVYyNzAuNTUyeiIvPiA8cGF0aCBkPSJNMzA0Ljc0Niw0OC4wMzd2ODcuNzg5YzAsMy4wMzksMi40NjQsNS41MDMsNS41MDMsNS41MDNjMy4wMzksMCw1LjUwMy0yLjQ2NCw1LjUwMy01LjUwM1Y0OC4wMzcgYzAtMy4wMzktMi40NjQtNS41MDMtNS41MDMtNS41MDNDMzA3LjIxLDQyLjUzNCwzMDQuNzQ2LDQ0Ljk5OCwzMDQuNzQ2LDQ4LjAzN3oiLz4gPHBhdGggZD0iTTE4Ni41MjYsMTY0LjY0SDQ3LjIwNGMtMy4wMzksMC01LjUwMywyLjQ2NS01LjUwMyw1LjUwNGMwLDMuMDM5LDIuNDY0LDUuNTAyLDUuNTAzLDUuNTAyaDEzOS4zMjIgYzMuMDM5LDAsNS41MDMtMi40NjMsNS41MDMtNS41MDJDMTkyLjAyOSwxNjcuMTA1LDE4OS41NjUsMTY0LjY0LDE4Ni41MjYsMTY0LjY0eiIvPiA8cGF0aCBkPSJNMTg2LjUyNiwyNDYuMDY4SDQ3LjIwNGMtMy4wMzksMC01LjUwMywyLjQ2NC01LjUwMyw1LjUwM2MwLDMuMDM5LDIuNDY0LDUuNTAzLDUuNTAzLDUuNTAzaDEzOS4zMjIgYzMuMDM5LDAsNS41MDMtMi40NjQsNS41MDMtNS41MDNDMTkyLjAyOSwyNDguNTMyLDE4OS41NjUsMjQ2LjA2OCwxODYuNTI2LDI0Ni4wNjh6Ii8+IDxwYXRoIGQ9Ik0xODYuNTI2LDEyOS4yOTVINDcuMjA0Yy0zLjAzOSwwLTUuNTAzLDIuNDY0LTUuNTAzLDUuNTAzYzAsMy4wMzksMi40NjQsNS41MDMsNS41MDMsNS41MDNoMTM5LjMyMiBjMy4wMzksMCw1LjUwMy0yLjQ2NCw1LjUwMy01LjUwM0MxOTIuMDI5LDEzMS43NTksMTg5LjU2NSwxMjkuMjk1LDE4Ni41MjYsMTI5LjI5NXoiLz4gPHBhdGggZD0iTTQ3LjIwNCwxMDQuOTU5aDgyLjcwOWMzLjAzOSwwLDUuNTAzLTIuNDY1LDUuNTAzLTUuNTA0YzAtMy4wMzktMi40NjQtNS41MDItNS41MDMtNS41MDJINDcuMjA0IGMtMy4wMzksMC01LjUwMywyLjQ2My01LjUwMyw1LjUwMkM0MS43MDEsMTAyLjQ5NCw0NC4xNjUsMTA0Ljk1OSw0Ny4yMDQsMTA0Ljk1OXoiLz4gPHBhdGggZD0iTTQ3LjIwNCw2OS42MTVoODIuNzA5YzMuMDM5LDAsNS41MDMtMi40NjMsNS41MDMtNS41MDJjMC0zLjAzOS0yLjQ2NC01LjUwNC01LjUwMy01LjUwNEg0Ny4yMDQgYy0zLjAzOSwwLTUuNTAzLDIuNDY1LTUuNTAzLDUuNTA0QzQxLjcwMSw2Ny4xNTIsNDQuMTY1LDY5LjYxNSw0Ny4yMDQsNjkuNjE1eiIvPiA8cGF0aCBkPSJNNS40ODgsMzA2LjU2OGgyMjIuNzU0YzMuMDMxLDAsNS40ODgtMi40NTcsNS40ODgtNS40ODhWODcuODQzbDAsMGwwLDBjMC0wLjAwOC0wLjAwMS0wLjAxNS0wLjAwMS0wLjAyMiBjLTAuMDAxLTAuMTc3LTAuMDEtMC4zNTMtMC4wMjctMC41MjVjLTAuMDEzLTAuMTM0LTAuMDM2LTAuMjY1LTAuMDU5LTAuMzk2Yy0wLjAwOC0wLjA0NS0wLjAxMi0wLjA5MS0wLjAyLTAuMTM2IGMtMC4wMzEtMC4xNTQtMC4wNzEtMC4zMDgtMC4xMTUtMC40NTljLTAuMDA2LTAuMDItMC4wMS0wLjA0LTAuMDE2LTAuMDYxYy0wLjA0Ny0wLjE1LTAuMTAyLTAuMjk5LTAuMTYtMC40NDYgYy0wLjAwOC0wLjAxOS0wLjAxNC0wLjAzOS0wLjAyMS0wLjA1OGMtMC4wNTctMC4xMzgtMC4xMjItMC4yNzEtMC4xOTEtMC40MDJjLTAuMDE0LTAuMDI3LTAuMDI1LTAuMDU3LTAuMDQtMC4wODQgYy0wLjA2NC0wLjExOS0wLjEzNi0wLjIzNC0wLjIwOC0wLjM0OWMtMC4wMjQtMC4wMzctMC4wNDUtMC4wNzctMC4wNjktMC4xMTNjLTAuMDY5LTAuMTAzLTAuMTQ2LTAuMjAyLTAuMjIzLTAuMzAxIGMtMC4wMzMtMC4wNDMtMC4wNjQtMC4wODktMC4wOTgtMC4xMzJjLTAuMDk1LTAuMTE1LTAuMTk3LTAuMjI1LTAuMzAzLTAuMzMzYy0wLjAyLTAuMDIxLTAuMDM2LTAuMDQzLTAuMDU3LTAuMDYzbC03My4xNzQtNzMuMTczIGMtMC4xMjctMC4xMjctMC4yNi0wLjI0Ni0wLjM5Ny0wLjM1OWMtMC4wMzYtMC4wMjktMC4wNzUtMC4wNTUtMC4xMTEtMC4wODNjLTAuMTA1LTAuMDgyLTAuMjExLTAuMTY0LTAuMzItMC4yMzcgYy0wLjAzMi0wLjAyMS0wLjA2Ny0wLjA0LTAuMS0wLjA2MWMtMC4xMTgtMC4wNzYtMC4yMzgtMC4xNS0wLjM2MS0wLjIxN2MtMC4wMjItMC4wMTItMC4wNDctMC4wMjEtMC4wNjktMC4wMzMgYy0wLjEzNy0wLjA3MS0wLjI3NS0wLjEzOS0wLjQxNy0wLjE5N2MtMC4wMTYtMC4wMDctMC4wMzItMC4wMTItMC4wNDctMC4wMThjLTAuMTUtMC4wNjEtMC4zMDMtMC4xMTYtMC40NTctMC4xNjQgYy0wLjAxOC0wLjAwNS0wLjAzNS0wLjAwOC0wLjA1My0wLjAxM2MtMC4xNTMtMC4wNDYtMC4zMDktMC4wODYtMC40NjctMC4xMThjLTAuMDQzLTAuMDA4LTAuMDg5LTAuMDEyLTAuMTMyLTAuMDIgYy0wLjEzMy0wLjAyMy0wLjI2Ni0wLjA0Ny0wLjQtMC4wNmMtMC4xODEtMC4wMTktMC4zNjQtMC4wMjgtMC41NDgtMC4wMjhsMCwwSDUuNDg4QzIuNDU3LDkuMTgzLDAsMTEuNjQsMCwxNC42NzFWMzAxLjA4IEMwLDMwNC4xMTEsMi40NTcsMzA2LjU2OCw1LjQ4OCwzMDYuNTY4eiBNMjE0Ljk5NSw4Mi4zNTdsLTU0LjQzNCwwLjAwNmwtMC4wMDMtNTQuNDQxTDIxNC45OTUsODIuMzU3eiBNMTAuOTc2LDIwLjE2aDEzOC42MDUgbDAuMDA0LDY3LjY5MmMwLDEuNDU2LDAuNTc4LDIuODUyLDEuNjA3LDMuODgxYzEuMDI5LDEuMDI4LDIuNDI2LDEuNjA2LDMuODgxLDEuNjA2bDY3LjY4Mi0wLjAwOHYyMDIuMjYxSDEwLjk3NlYyMC4xNnoiLz4gPC9nPiA8L2c+Cg08L3N2Zz4="
+                  class="Silo-Svg"
+                  alt="African Theme Image 1"
+                /></td>
+                <td><strong>{{item.customer.customerName}}</strong></td>
+                <td><strong>{{item.contractNumber}}</strong></td>
+                <td><strong>{{item.product.productName}}</strong></td>
+                <td><strong>{{item.maxTonnages}}</strong></td>
+                <td><div>
+                  <button class="Sidebar-Password-Button" (click)="openModalContract(item)">Edit</button>
+                </div></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
       
-          
-      
-          </div>
-      </div>
+  
 
 
       
@@ -106,12 +96,7 @@
 <!-- Your modal content here --> 
 <!-- Add your form or editable fields here -->
 
-
-
-
-
-
-<form >
+<div style="display:grid">
   <h3>Edit Contract</h3>
   
   <label for="customer" class="Input-Lables">Customer:</label>
@@ -120,7 +105,7 @@
   </select>
 
   <label class="Input-Lables">Contract Number <span class="Required">*</span></label>
-  <input type="text" id="contractNumberEdit" placeholder="Enter Contract Number" [(ngModel)]="selectedContract.contractNumber" required>
+  <input type="text" class="Input-Styling" id="contractNumberEdit" placeholder="Enter Contract Number" [(ngModel)]="selectedContract.contractNumber" required>
 
   <label for="product" class="Input-Lables">Product:</label>
   <select id="productEdit" *ngIf="products" [(ngModel)]="selectedContract.productId">
@@ -128,7 +113,7 @@
   </select>
 
   <label class="Input-Lables" for="maxTonnages">Max Tonnages <span class="Required">*</span></label>
-  <input type="text" id="maxTonnagesEdit" placeholder="Enter Max Tonnages" [(ngModel)]="selectedContract.maxTonnages" required>
+  <input type="text" class="Input-Styling" id="maxTonnagesEdit" placeholder="Enter Max Tonnages" [(ngModel)]="selectedContract.maxTonnages" required>
 
   <div class="Buttons-Parent">
     <div class="button-1-parent">
@@ -140,11 +125,11 @@
     </div>
   </div>
   
-</form>
+</div>
 
 <!-- Toast message -->
-<div *ngIf="toastMessageEdit" class="toast-message-edit">
+<!-- <div *ngIf="toastMessageEdit" class="toast-message-edit">
   Contract Edited Successfully!
-</div>
+</div> -->
   
 </div>
