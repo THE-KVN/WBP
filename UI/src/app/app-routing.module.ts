@@ -9,12 +9,12 @@ import { adjustSiloLevelsPageComponent } from './adjust-silo-levels-page/adjust-
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { offLoadProductPageComponent } from './off-load-product-page/off-load-product-page.component';
 import { loadProductPageComponent } from './load-product-page/load-product-page.component';
+import { waybilPrintPageComponent } from './waybil-print-page/waybil-print-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ExportReportPageComponent } from './export-report-page/export-report-page.component';
 
 const routes: Routes = [
   { path: '', component: DashboardPageComponent }, // Define the dashboard route
-  
   { path: 'addContract', component: addContractPageComponent },
   { path: 'addCustomer', component: addCustomerPageComponent },
   { path: 'addSiloProduct', component: addSiloProductPageComponent },
