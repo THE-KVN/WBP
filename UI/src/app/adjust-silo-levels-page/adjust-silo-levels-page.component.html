@@ -27,7 +27,7 @@
                 /></td>
                 <td><strong>{{item.friendlyName}}</strong></td>
                 <td><strong>{{ item.product ? item.product.productName : "N/A" }}</strong></td>
-                <td><strong>{{ item.spaceAvailable }} ton</strong></td>
+                <td><strong>{{ item.spaceAvailable | number:'1.2-2'}} ton</strong></td>
                 <td><strong>{{ item.precentageFull }}%</strong></td>
                 <td><div>
                   <button class="Sidebar-Password-Button" (click)="EditSiloModal(item)">Edit</button>

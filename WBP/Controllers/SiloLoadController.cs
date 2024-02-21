@@ -48,6 +48,8 @@ namespace WBP.Controllers
             }
 
             siloLoad.Modified = DateTime.Now;
+            siloLoad = FixPoints(siloLoad);
+
             _context.Entry(siloLoad).State = EntityState.Modified;
 
             try
@@ -79,6 +81,8 @@ namespace WBP.Controllers
             siloLoad.FirstWeightDate = DateTime.Now;
             siloLoad.IsFinalized = false;
             siloLoad.LoadTypeId = LoadType.Loading;
+
+            siloLoad = FixPoints(siloLoad);
 
             _context.SiloLoads.Add(siloLoad);
             await _context.SaveChangesAsync();
@@ -242,6 +246,8 @@ namespace WBP.Controllers
             siloLoad.IsFinalized = false;
             siloLoad.LoadTypeId = LoadType.Loading;
 
+            siloLoad = FixPoints(siloLoad);
+
             _context.SiloLoads.Add(siloLoad);
             await _context.SaveChangesAsync();
 
@@ -260,6 +266,8 @@ namespace WBP.Controllers
             siloLoad.FirstWeightDate = DateTime.Now;
             siloLoad.IsFinalized = false;
             siloLoad.LoadTypeId = LoadType.OffLoading;
+
+            siloLoad = FixPoints(siloLoad);
 
             _context.SiloLoads.Add(siloLoad);
             await _context.SaveChangesAsync();
@@ -285,6 +293,7 @@ namespace WBP.Controllers
                 siloLoad.SecondWeightDate = DateTime.Now;
                 siloLoad.TotalWeigth = (siloLoad.SecondWeight - siloLoad.FirstWeight);
 
+                siloLoad = FixPoints(siloLoad);
 
                 _context.Entry(siloLoad).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
@@ -294,6 +303,8 @@ namespace WBP.Controllers
                 silo.CurrentMeasurement = silo.CurrentMeasurement + siloLoad.TotalWeigth;
                 silo.PrecentageFull = Convert.ToInt32((silo.CurrentMeasurement / silo.Capacity) * 100);
                 silo.SpaceAvailable = silo.Capacity - silo.CurrentMeasurement;
+
+                silo = FixPoints(silo);
 
                 _context.Entry(silo).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
@@ -326,6 +337,7 @@ namespace WBP.Controllers
                 siloLoad.SecondWeightDate = DateTime.Now;
                 siloLoad.TotalWeigth = (siloLoad.FirstWeight - siloLoad.SecondWeight);
 
+                siloLoad = FixPoints(siloLoad);
 
                 _context.Entry(siloLoad).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
@@ -335,6 +347,8 @@ namespace WBP.Controllers
                 silo.CurrentMeasurement = silo.CurrentMeasurement - siloLoad.TotalWeigth;
                 silo.PrecentageFull = Convert.ToInt32((silo.CurrentMeasurement / silo.Capacity) * 100);
                 silo.SpaceAvailable = silo.Capacity - silo.CurrentMeasurement;
+
+                silo = FixPoints(silo);
 
                 _context.Entry(silo).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
@@ -399,7 +413,7 @@ namespace WBP.Controllers
                 //Replace with data
                 html = html.Replace("###DATE###", DateTime.Now.ToString("dd/MM/yyyy hh:mm tt"));
                 html = html.Replace("###WBNUMBER###", siloLoad.WayBillNumber);
-                html = html.Replace("###CUSTOMER###", $"{customer.CustomerName} ({siloLoad.Contract.ContractNumber})");
+                html = html.Replace("###CUSTOMER###", $"{customer.CustomerName}");
                 html = html.Replace("###REGISTRATION###", siloLoad.Vehicle.RegistrationNumber);
                 html = html.Replace("###PRODUCTNAME###", siloLoad.Product.ProductName);
                 html = html.Replace("###PRODUCTGRADING###", siloLoad.Product.ProductGrading);
@@ -407,9 +421,9 @@ namespace WBP.Controllers
                 html = html.Replace("###TIMEOUT###", siloLoad.SecondWeightDate.HasValue ? siloLoad.SecondWeightDate.Value.ToString("dd/MM/yyyy hh:mm tt") : "");
                 html = html.Replace("###SILO###", siloLoad.Silo.FriendlyName);
                 html = html.Replace("###LOADING###", ((LoadType)siloLoad.LoadTypeId).ToString());
-                html = html.Replace("###FIRSTWEIGHT###", siloLoad.FirstWeight.ToString());
-                html = html.Replace("###SECONDWEIGHT###", siloLoad.SecondWeight.ToString());
-                html = html.Replace("###TOTALWEIGHT###", siloLoad.TotalWeigth.ToString());
+                html = html.Replace("###FIRSTWEIGHT###", String.Format("{0:0.00}", siloLoad.FirstWeight));
+                html = html.Replace("###SECONDWEIGHT###", String.Format("{0:0.00}", siloLoad.SecondWeight));
+                html = html.Replace("###TOTALWEIGHT###", String.Format("{0:0.00}", siloLoad.TotalWeigth));
 
 
 
@@ -589,6 +603,24 @@ namespace WBP.Controllers
         private bool SiloLoadExists(int id)
         {
             return _context.SiloLoads.Any(e => e.Id == id);
+        }
+
+        private SiloLoad FixPoints(SiloLoad s)
+        {
+            s.FirstWeight = Convert.ToDecimal(Math.Round(s.FirstWeight, 2));
+            s.SecondWeight = Convert.ToDecimal(Math.Round(s.SecondWeight, 2));
+            s.TotalWeigth = Convert.ToDecimal(Math.Round(s.TotalWeigth, 2));
+
+            return s;
+        }
+
+        private Silo FixPoints(Silo s)
+        {
+            s.CurrentMeasurement = Convert.ToDecimal(Math.Round(s.CurrentMeasurement, 2));
+            s.Capacity = Convert.ToDecimal(Math.Round(s.Capacity, 2));
+            s.SpaceAvailable = Convert.ToDecimal(Math.Round(s.SpaceAvailable, 2));
+
+            return s;
         }
     }
 }

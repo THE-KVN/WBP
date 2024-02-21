@@ -90,7 +90,7 @@
                 }})</strong></td>
                 <td><strong>{{ item.contract.contractNumber }}</strong></td>
                 <td><strong>{{ item.vehicle.registrationNumber }}</strong></td>
-                <td><strong>{{ item.totalWeigth }}</strong></td>
+                <td><strong>{{ item.totalWeigth | number:'1.2-2'}}</strong></td>
                 <td><div>
                   <button class="Sidebar-Password-Button" (click)="viewWaybill(item)">
                     Waybill

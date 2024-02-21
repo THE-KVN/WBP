@@ -11,9 +11,9 @@ namespace WBP.Entities
         public int Id { get; set; }
         public int Number { get; set; }
         public string FriendlyName { get; set; }
-        public double CurrentMeasurement { get; set; }
-        public double Capacity { get; set; }
-        public double SpaceAvailable { get; set; }
+        public decimal CurrentMeasurement { get; set; }
+        public decimal Capacity { get; set; }
+        public decimal SpaceAvailable { get; set; }
         public int PrecentageFull { get; set; }
 
 
@@ -37,9 +37,9 @@ namespace WBP.Entities
         public int Id { get; set; }
         public LoadType LoadTypeId { get; set; }
         public string LoadType { get; set; }
-        public double FirstWeight { get; set; }
-        public double SecondWeight { get; set; }
-        public double TotalWeigth { get; set; }
+        public decimal FirstWeight { get; set; }
+        public decimal SecondWeight { get; set; }
+        public decimal TotalWeigth { get; set; }
 
         public DateTime? FirstWeightDate { get; set; }
         public DateTime? SecondWeightDate { get; set; }
