@@ -21,6 +21,8 @@ namespace WBP.Entities
         public int? ProductId { get; set; }
         public virtual Product? Product { get; set; }
 
+        public SiloType SiloType { get; set; }
+
         public Silo()
         {
 

@@ -21,7 +21,19 @@ namespace WBP
                 )
             );
 
+            
+
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<WBContext>();
+                db.Database.Migrate();
+
+                //var services = scope.ServiceProvider;
+                //SeedData.Initialize(services);
+
+            }
 
             // Configure the HTTP request pipeline.
 

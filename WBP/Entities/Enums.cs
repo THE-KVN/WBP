@@ -11,4 +11,10 @@
         Silo = 0,
         //LiveStock = 1,
     }
+
+    public enum  SiloType
+    {
+        Silo = 0,
+        StoreRoom = 1,       
+    }
 }

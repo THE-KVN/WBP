@@ -20,7 +20,7 @@ namespace WBP.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Silo>>> GetSilos()
         {
-            return await _context.Silos.Where(x => x.Archived == false).OrderBy(x => x.Number).ToListAsync();
+            return await _context.Silos.Where(x => x.Archived == false).OrderBy(x => x.Number).ThenBy(x=> x.SiloType).ToListAsync();
         }
 
         // GET: api/Silo/5
@@ -96,6 +96,7 @@ namespace WBP.Controllers
                                     .Where(x => x.Archived == false)
                                     .Include(x => x.Product)
                                     .OrderBy(x => x.Number)
+                                    .ThenBy(x => x.SiloType)
                                     .ToListAsync();
 
                 return Ok(new Response()
