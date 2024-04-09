@@ -23,6 +23,7 @@ export class DashboardPageComponent {
   all_silos : Silo[];
   silos1: Silo[] = [];
   silos2: Silo[] = [];
+  silos3: Silo[] = [];
   currentLoads : SiloLoad[];
   currentOffLoads : SiloLoad[];
 
@@ -190,10 +191,14 @@ else
             {
               this.silos1.push(element);
             }
-            else
+            else if (element.number <= 8)
             {
               this.silos2.push(element);
             }
+            else 
+              {
+                this.silos3.push(element);
+              }
           }
 
 

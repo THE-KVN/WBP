@@ -1,11 +1,11 @@
 <div class="Dashboard-Parent">
 
-  <h3>Adjust Silo Levels</h3>
+  <h3>Manage</h3>
     
   <div class="Dashboard-Third-Layout-Blocks">
     <div class="Dashboard-Layout-Block-List">
   
-      <h3>Silos</h3>
+      <h3>Silos / Storage</h3>
 
       <table class="Info-Table">
         <thead>
@@ -49,7 +49,7 @@
   <!-- Add your form or editable fields here -->
 
   <div style="display:grid;">
-    <h3>Edit Silo Levels</h3>
+    <h3>Manage</h3>
     
     <label class="Input-Lables" for="friendlyName">Name <span class="Required">*</span></label>
     <input  class="Input-Styling" type="text" [(ngModel)]="selectedSilo.friendlyName" placeholder="Enter Silo Name" required>
@@ -73,7 +73,7 @@
 
     <div class="Buttons-Parent">
       <div class="button-1-parent">
-        <button class="button-2"  (click)="onEditSilo()">EDIT SILO LEVEL</button>
+        <button class="button-2"  (click)="onEditSilo()">UPDATE</button>
       </div>
     </div>
   </div>

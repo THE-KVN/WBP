@@ -92,6 +92,7 @@ namespace WBP.Controllers
         {
             try
             {
+
                 var siloData = await _context.Silos
                                     .Where(x => x.Archived == false)
                                     .Include(x => x.Product)

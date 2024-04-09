@@ -47,6 +47,7 @@ selectedVehicleString : string = "";
 
   all_contracts : Contract[];
   all_silos : Silo[];
+  all_silos_dd : Silo[];
   all_products : Product[];
   all_vehicles : Vehicle[];
 
@@ -204,10 +205,10 @@ const secondPart = parseInt(parts[1]);
     this.siloLoad.productId = this.selectedProduct.id;
     this.selectedContractString = selectedId;
 
-    this.all_silos = this.all_silos.filter(x=>x.productId === this.selectedProduct.id);
-    if (this.all_silos.length > 0) {
+    this.all_silos_dd = this.all_silos.filter(x=>x.productId === this.selectedProduct.id);
+    if (this.all_silos_dd.length > 0) {
       // this.all_silos has values
-      this.siloLoad.siloId = this.all_silos[0].id;
+      this.siloLoad.siloId = this.all_silos_dd[0].id;
   }
   }
 

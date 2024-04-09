@@ -505,7 +505,7 @@ namespace WBP.Controllers
                         ws.Column(15).Style.Numberformat.Format = "yyyy-mm-dd";
 
                         ws.Cells[row, 1].Value = "Reference";
-                        ws.Cells[row, 2].Value = "Silo";
+                        ws.Cells[row, 2].Value = "Silo/Storage";
                         ws.Cells[row, 3].Value = "Product";
                         ws.Cells[row, 4].Value = "Grading";
                         ws.Cells[row, 5].Value = "Type";

@@ -24,8 +24,8 @@
 
         <tr>
           <td class="dataheader"><strong>Silo:</strong></td>
-          <td class="datacell"><select id="siloIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_silos" [(ngModel)]="selectedSiloString" (change)="siloSelectionChanged($event.target.value)">
-            <option *ngFor="let silo of all_silos" [ngValue]="silo.id">{{silo.friendlyName}}</option>
+          <td class="datacell"><select id="siloIdSelect" style="width: 100%;margin-bottom: 0px;font-size: 16px;" [disabled]="!isPageLoaded" *ngIf="all_silos_dd" [(ngModel)]="selectedSiloString" (change)="siloSelectionChanged($event.target.value)">
+            <option *ngFor="let silo of all_silos_dd" [ngValue]="silo.id">{{silo.friendlyName}}</option>
           </select></td>     
         </tr>
 
