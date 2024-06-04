@@ -384,7 +384,7 @@ namespace WBP.Controllers
                 var customers = _context.Customers.ToList();
 
                 //TODO: Generate waybill file 
-                IronPdf.License.LicenseKey = "IRONSUITE.20240319.HOUSEOLCKERS.CO.ZA.18624-50830F9B85-DNCC5AU-CTT45SNEELUT-DMFEZH4TPSFL-Q3UQRPXH6S2Q-EVI5XGAPQUTT-MQCRWFI5ANKM-AYUSDJJJFSKS-HYO7XC-TLV2JIDYXQWMEA-DEPLOYMENT.TRIAL-LYE2AV.TRIAL.EXPIRES.18.APR.2024";
+                IronPdf.License.LicenseKey = "IRONSUITE.20240522.HOUSEOLCKERS.CO.ZA.14731-560EEA7484-F4NFJCGFD6NWAP-7NQDSEJOI2AF-XOBU2KG422KG-4O6PQGLP4F62-O4AWOFQTOBUG-IJ7UCGVJRORB-4HPRQC-TEC64CJJLQ2MUA-DEPLOYMENT.TRIAL-HJOXDC.TRIAL.EXPIRES.21.JUN.2024";
                 bool is_licensed = IronPdf.License.IsLicensed;
                 // Disable local disk access or cross-origin requests
                 Installation.EnableWebSecurity = true;

@@ -236,7 +236,7 @@ const secondPart = parseInt(parts[1]);
         // Handle the change event here
 
         this.selectedVechicle = this.all_vehicles.find(x => x.id === secondPart);
-  
+        this.error = "";
        console.log('Selected vehicle:', this.selectedVechicle);
     
         this.siloLoad.vehicleId = secondPart;
@@ -246,7 +246,13 @@ const secondPart = parseInt(parts[1]);
 onSubmit()
 {
   console.log('Silo load to submit: ', this.siloLoad);
-
+  console.log('Selected vehicle: ', this.selectedVechicle);
+if (this.selectedVechicle.id == 0)
+  {
+    this.error = "Please select vehicle";
+  }
+else
+{
       //api post call
       this.apiService.post<ApiResponse>('api/createoffload',this.siloLoad)
         .subscribe(result => {
@@ -290,6 +296,7 @@ onSubmit()
             console.log('post api/createoffload :' + this.error);
           }
         })
+      }
 }
 
 loadSiloLoads()
