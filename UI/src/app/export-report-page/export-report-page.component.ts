@@ -45,6 +45,18 @@ export class ExportReportPageComponent implements OnInit {
       })
   }
 
+  CustomerSelectionChanged(selectedId: any) {
+    console.log('CustomerSelectionChanged Id: ' + selectedId);
+    // Split the string at the colon
+    //const parts = selectedId.split(":");
+    // Get the second part and convert it to a number
+    //const secondPart = parseInt(parts[1]); 
+
+    
+       this.selectedCustomer.id = selectedId;
+
+  }
+
 
   onSubmit()
   {

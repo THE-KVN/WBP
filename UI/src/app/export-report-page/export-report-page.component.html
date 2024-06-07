@@ -6,7 +6,7 @@
         <h3>Export a list of loads for the selected customer(s)</h3>
         
         <label for="customer" class="Input-Lables">Customer:</label>
-        <select id="customer" [(ngModel)]="selectedCustomer.id">
+        <select id="customer" [(ngModel)]="selectedCustomer.id" (change)="CustomerSelectionChanged($event.target.value)">
             <option value="99999">All Customers</option>
             <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.customerName }}</option>
         </select>
